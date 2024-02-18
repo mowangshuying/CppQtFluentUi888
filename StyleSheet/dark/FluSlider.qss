@@ -8,7 +8,7 @@ QSlider:horizontal {
 QSlider::groove:horizontal {
     height: 4px;
     min-width: 150px;
-    background-color: rgb(134, 134, 134);
+    background-color: rgb(154, 154, 154);
     border-radius: 2px;
 }
 
@@ -18,13 +18,13 @@ QSlider::sub-page:horizontal {
 }
 
 QSlider::add-page:horizontal {
-    background-color: rgb(134, 134, 134);
+    background-color: rgb(154, 154, 154);
     border-radius: 2px;
 }
 
 QSlider::handle:horizontal {
     background-color: rgb(0, 90, 158);
-    border: 6px solid rgb(255, 255, 255);
+    border: 6px solid rgb(69, 69, 69);
     width: 13px;
     min-height: 15px;
     margin: -10px 0;
@@ -33,7 +33,7 @@ QSlider::handle:horizontal {
 
 QSlider::handle:horizontal:hover {
     background-color: rgb(0, 90, 158);
-    border: 4px solid rgb(255, 255, 255);
+    border: 4px solid rgb(69, 69, 69);
     width: 17px;
     min-height: 15px;
     margin: -10px 0;
@@ -42,7 +42,7 @@ QSlider::handle:horizontal:hover {
 
 QSlider::handle:horizontal:pressed {
     background-color: rgb(0, 90, 158);
-    border: 7px solid rgb(255, 255, 255);
+    border: 7px solid rgb(69, 69, 69);
     width: 11px;
     min-height: 15px;
     margin: -10px 0;
@@ -54,8 +54,8 @@ QSlider::groove:horizontal:disabled {
 }
 
 QSlider::handle:horizontal:disabled {
-    background-color: rgb(128, 128, 128);
-    border: 6px solid rgb(204, 204, 204);
+    background-color: rgb(85, 85, 85);
+    border: 6px solid rgb(53, 53, 53);
 }
 
 /*FluSlider Vertical*/
@@ -67,7 +67,7 @@ QSlider:vertical {
 QSlider::groove:vertical {
     width: 4px; 
     min-height: 150px;
-    background-color: rgb(134,134,134);
+    background-color: rgb(154,154,154);
     border-radius: 2px;
 }
 
@@ -78,14 +78,14 @@ QSlider::sub-page:vertical {
 }
 
 QSlider::add-page:vertical {
-    background-color: rgb(134, 134, 134);
+    background-color: rgb(154, 154, 154);
     border-radius: 2px;
 }
 
 
 QSlider::handle:vertical {
     background-color: rgb(0, 90, 158);
-    border: 6px solid rgb(255, 255, 255);
+    border: 6px solid rgb(69, 69, 69);
     height: 13px;
 	min-width: 15px;
     margin: 0px -10px;
@@ -94,7 +94,7 @@ QSlider::handle:vertical {
 
 QSlider::handle:vertical:hover {
     background-color: rgb(0, 90, 158);
-    border: 4px solid  rgb(255, 255, 255);
+    border: 4px solid  rgb(69, 69, 69);
     height: 17px;
 	min-width: 15px;
     margin: 0px -10px;
@@ -103,7 +103,7 @@ QSlider::handle:vertical:hover {
 
 QSlider::handle:vertical:pressed {
     background-color: rgb(0, 90, 158);
-    border: 7px solid rgb(255, 255, 255);
+    border: 7px solid rgb(69, 69, 69);
     height: 11px;
 	min-width: 15px;
     margin: 0px -10px;
@@ -115,6 +115,6 @@ QSlider::groove:vertical:disabled {
 }
 
 QSlider::handle:vertical:disabled {
-    background-color: rgb(128, 128, 128);
-    border: 6px solid rgb(204,204,204);
+    background-color: rgb(85, 85, 85);
+    border: 6px solid rgb(53, 53, 53);
 }
