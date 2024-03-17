@@ -125,7 +125,7 @@ class FluDropDownButton : public QWidget
 
   protected:
     QPushButton* m_textBtn;
-    QPushButton* m_iconBtn;// dropdown button;
+    QPushButton* m_iconBtn;
     QHBoxLayout* m_hMainLayout;
     FluMenu* m_menu;
 };
