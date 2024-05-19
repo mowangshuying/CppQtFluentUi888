@@ -17,13 +17,13 @@
 #include "FluWidget.h"
 #include "FluVScrollView.h"
 
-class FluVNavigationItem;
-class FluVNavigationIconTextItem;
-class FluVNavigationView : public FluWidget
+class FluNavigationItem;
+class FluNavigationIconTextItem;
+class FluNavigationView : public FluWidget
 {
     Q_OBJECT
   public:
-    FluVNavigationView(QWidget *parent = nullptr);
+    FluNavigationView(QWidget *parent = nullptr);
 
     void addItemToTopLayout(QWidget *item);
 
@@ -44,9 +44,9 @@ class FluVNavigationView : public FluWidget
         return m_bLong;
     }
 
-    std::vector<FluVNavigationItem *> getAllItems();
+    std::vector<FluNavigationItem *> getAllItems();
 
-    FluVNavigationItem *getItemByKey(QString key);
+    FluNavigationItem *getItemByKey(QString key);
 
     void paintEvent(QPaintEvent *event) override;
 
@@ -54,14 +54,14 @@ class FluVNavigationView : public FluWidget
     void onMenuItemClicked();
     void onThemeChanged()
     {
-        // LOG_DEBUG << "called";
+        //LOG_DEBUG << "called";
         if (FluThemeUtils::getUtils()->getTheme() == FluTheme::Light)
         {
-            FluStyleSheetUitls::setQssByFileName("../StyleSheet/light/FluVNavigationView.qss", this);
+            FluStyleSheetUitls::setQssByFileName("../StyleSheet/light/FluNavigationView.qss", this);
         }
         else
         {
-            FluStyleSheetUitls::setQssByFileName("../StyleSheet/dark/FluVNavigationView.qss", this);
+            FluStyleSheetUitls::setQssByFileName("../StyleSheet/dark/FluNavigationView.qss", this);
         }
     }
 
