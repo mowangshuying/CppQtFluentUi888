@@ -94,7 +94,7 @@ class FluVNavigationIconTextItem : public FluVNavigationItem
 
     FluVNavigationIconTextItem *getRootItem();
 
-    void clearAllItemsSelectState()
+    void clearAllItemsSelectState() override
     {
         FluVNavigationIconTextItem *rootItem = getRootItem();
         clearItemsSelectState(rootItem);
@@ -102,7 +102,7 @@ class FluVNavigationIconTextItem : public FluVNavigationItem
 
     void clearItemsSelectState(FluVNavigationIconTextItem *item);
 
-    void updateAllItemsStyleSheet()
+    void updateAllItemsStyleSheet() override
     {
         FluVNavigationIconTextItem *rootItem = getRootItem();
         updateItemsStyleSheet(rootItem);
@@ -127,7 +127,7 @@ class FluVNavigationIconTextItem : public FluVNavigationItem
     void mouseReleaseEvent(QMouseEvent *event) override;
 
     // to enable qss
-    void paintEvent(QPaintEvent *event)
+    void paintEvent(QPaintEvent *event) override
     {
         QStyleOption opt;
         opt.initFrom(this);
@@ -169,7 +169,7 @@ class FluVNavigationIconTextItem : public FluVNavigationItem
         }
     }
 
-    void onThemeChanged()
+    void onThemeChanged() override
     {
         // LOG_DEBUG << "called";
         if (FluThemeUtils::getUtils()->getTheme() == FluTheme::Light)
