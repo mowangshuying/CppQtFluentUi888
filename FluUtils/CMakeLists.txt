@@ -19,11 +19,16 @@ qt_add_library(${TGT}
     STATIC
     ${DIR_SRCS}
 )
+set(RES_FILES
+    "../res/Segoe_Fluent_Icons.ttf"
+)
+source_group(TREE ${CMAKE_SOURCE_DIR} FILES ${RES_FILES})
+
 qt_add_resources(${TGT} "FluUtilsFonts"
     PREFIX "/"
     BASE ".."
     FILES
-    "../res/Segoe_Fluent_Icons.ttf"
+    ${RES_FILES}
 )
 
 target_link_libraries(${TGT}

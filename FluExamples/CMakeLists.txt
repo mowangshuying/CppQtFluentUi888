@@ -18,13 +18,18 @@ message(")")
 qt_add_executable(${TGT}
     ${DIR_SRCS}
 )
+set(QSS_FILES
+    "../StyleSheet/dark/FluMenuDemo.qss"
+    "../StyleSheet/light/FluHNavigationDemo.qss"
+    "../StyleSheet/light/FluMenuDemo.qss"
+)
+source_group(TREE ${CMAKE_SOURCE_DIR} FILES ${QSS_FILES})
+
 qt_add_resources(${TGT} "FluExamplesQss"
     PREFIX "/"
     BASE ".."
     FILES
-    "../StyleSheet/dark/FluMenuDemo.qss"
-    "../StyleSheet/light/FluHNavigationDemo.qss"
-    "../StyleSheet/light/FluMenuDemo.qss"
+    ${QSS_FILES}
 )
 
 target_link_libraries(${TGT}
