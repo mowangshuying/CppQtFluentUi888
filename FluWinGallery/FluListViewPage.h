@@ -48,7 +48,6 @@ class FluListViewPage : public FluAEmptyPage
 
         m_vScrollView->getMainLayout()->addWidget(displayBox1, 0, Qt::AlignTop);
         FluStyleSheetUitls::setQssByFileName(":/StyleSheet/light/FluListViewPage.qss", this);
-        // connect(FluThemeUtils::getUtils(), &FluThemeUtils::themeChanged, [=](FluTheme theme) { onThemeChanged(); }); { onThemeChanged(); });
     }
 
   public slots:

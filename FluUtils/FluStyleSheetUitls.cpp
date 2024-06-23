@@ -18,19 +18,13 @@ QString FluStyleSheetUitls::getQssByFileName(const QString &fileName)
         file.close();
         return qssStr;
     }
-
+    LOG_ERR << "open qss file failed: " << fileName;
     return "";
 }
 
 void FluStyleSheetUitls::setQssByFileName(const QString &fileName, QWidget *widget, bool bDebugQss)
 {
-//#ifdef USE_ONLY_RELATIVE_PATH
-//    QString qssFileName = fileName;
-//    qssFileName.replace(":", "..");
-//    QString qss = FluStyleSheetUitls::getQssByFileName(qssFileName);
-//#else
     QString qss = FluStyleSheetUitls::getQssByFileName(fileName);
-//#endif
     if (widget != nullptr)
     {
         widget->setStyleSheet(qss);

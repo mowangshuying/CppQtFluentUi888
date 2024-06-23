@@ -12,6 +12,7 @@
 #include <QStyleOption>
 #include <QPainter>
 
+class FluHNavigationFlyIconTextItem;
 class FluHNavigationIconTextItem : public FluHNavigationItem
 {
     Q_OBJECT
@@ -77,9 +78,6 @@ class FluHNavigationIconTextItem : public FluHNavigationItem
         m_bHideIcon = bHideIcon;
     }
 
-    // bool m_bParentIsFlyIconTextItem;
-    //  bool m_bParentIsNavigationView;
-
     bool parentIsFlyIconTextItem()
     {
         return m_bParentIsFlyIconTextItem;
@@ -97,15 +95,45 @@ class FluHNavigationIconTextItem : public FluHNavigationItem
 
     void setParentIsNavigationView(bool bParent)
     {
+        if (bParent)
+        {
+            m_hIndicator->show();
+        }
+        else
+        {
+            m_hIndicatorWrap->hide();
+        }
         m_bParentIsNavigationView = bParent;
+    }
+
+    void setParentFlyIconTextItem(FluHNavigationFlyIconTextItem* parentFlyIconTextItem)
+    {
+        // m_hIndicator->show();
+        m_parentFlyIconTextItem = parentFlyIconTextItem;
+    }
+
+    FluHNavigationFlyIconTextItem* getParentFlyIconTextItem()
+    {
+        return m_parentFlyIconTextItem;
     }
 
     void addItem(FluHNavigationIconTextItem* item);
 
     int calcItemW1Width();
+
+    int calcItemWidth();
+
     int calcItemW2Height(FluHNavigationIconTextItem* item);
 
     void adjustItemHeight(FluHNavigationIconTextItem* item);
+
+    void adjustItemWidth(FluHNavigationIconTextItem* item, int& nMaxWidth, int& nCallHierarchy);
+
+    void setItemFixedWidth(int nMaxWidth);
+
+    void setArrowBtnToChevronUp();
+
+    void setArrowBtnToChevronDown();
 
     int getDepth();
 
@@ -114,6 +142,25 @@ class FluHNavigationIconTextItem : public FluHNavigationItem
     bool isLeaf()
     {
         return m_items.empty();
+    }
+
+    void expand();
+
+    void collapse();
+
+    void clearAllItemsSelectState();
+
+    void clearAllItemsSelectState(FluHNavigationIconTextItem* item);
+
+    void updateAllItemsStyleSheet();
+
+    void updateAllItemsStyleSheet(FluHNavigationIconTextItem* item);
+
+    void updateSelected(bool b);
+
+    QWidget* getVIndicator()
+    {
+        return m_vIndicator;
     }
 
     void mouseReleaseEvent(QMouseEvent* event);
@@ -129,6 +176,7 @@ class FluHNavigationIconTextItem : public FluHNavigationItem
     void itemClicked();
   public slots:
     void onItemClicked();
+
     void onThemeChanged();
 
   protected:
@@ -137,7 +185,11 @@ class FluHNavigationIconTextItem : public FluHNavigationItem
 
     QWidget* m_emptyWidget;
 
-    QWidget* m_indicator;
+    QWidget* m_hIndicatorWrap;
+    QHBoxLayout* m_hIndicatorLayout;
+    QWidget* m_hIndicator;
+
+    QWidget* m_vIndicator;
     QPushButton* m_iconBtn;
     QLabel* m_label;
     QPushButton* m_arrow;
@@ -149,10 +201,12 @@ class FluHNavigationIconTextItem : public FluHNavigationItem
     QVBoxLayout* m_vLayout1;
 
     FluHNavigationIconTextItem* m_parentItem;
+    FluHNavigationFlyIconTextItem* m_parentFlyIconTextItem;
     FluAwesomeType m_awesomeType;
 
     bool m_bHideIcon;
     bool m_bSelected;
+    bool m_bDown;
 
     bool m_bParentIsFlyIconTextItem;
     bool m_bParentIsNavigationView;

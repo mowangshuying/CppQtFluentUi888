@@ -29,8 +29,6 @@ class FluRepeatButtonPage : public FluAEmptyPage
         repeatButton->setText("Click and hold");
         displayBox->getBodyLayout()->addWidget(repeatButton);
         m_vScrollView->getMainLayout()->addWidget(displayBox, 0, Qt::AlignTop);
-
-        // connect(FluThemeUtils::getUtils(), &FluThemeUtils::themeChanged, [=](FluTheme theme) { onThemeChanged(); }); { onThemeChanged(); });
     }
 
   public slots:

@@ -35,7 +35,6 @@ set(RES_FILES
     "../res/ninegrid.gif"
     "../res/ScrollBottom.png"
     "../res/ScrollTop.png"
-    # "../res/Segoe_Fluent_Icons.ttf"
     "../res/Slices.png"
     "../res/Slices2.png"
     "../res/SunBlack.png"
@@ -62,7 +61,7 @@ set(RES_FILES
     "../res/ControlImages/CalendarDatePicker.png"
     "../res/ControlImages/CalendarView.png"
     "../res/ControlImages/Canvas.png"
-    "../res/ControlImages/Checkbox.png"
+    "../res/ControlImages/CheckBox.png"
     "../res/ControlImages/Clipboard.png"
     "../res/ControlImages/ColorPaletteResources.png"
     "../res/ControlImages/ColorPicker.png"
@@ -433,6 +432,12 @@ set(RES_FILES
     "../res/Tiles/contrast-white/XAMLControlsGalleryWideTile.scale-150_contrast-white.png"
     "../res/Tiles/contrast-white/XAMLControlsGalleryWideTile.scale-200_contrast-white.png"
     "../res/Tiles/contrast-white/XAMLControlsGalleryWideTile.scale-400_contrast-white.png"
+    "../res/ControlImages/CaptureElement.png"
+    "../res/ControlImages/MapControl.png"
+    "../res/ControlImages/ScratchPad.png"
+    "../res/ControlResImages/CheckboxIndeterminate-Black.png"
+    "../res/ControlResImages/CheckboxIndeterminate-White.png"
+    "../res/ControlResImages/ChevronRight-Black.png"
 )
 source_group(TREE ${CMAKE_SOURCE_DIR} FILES ${RES_FILES})
 
@@ -489,6 +494,7 @@ set(CODE_FILES
     "../code/TimePickerPageCode2.md"
     "../code/ToggleButtonPageCode1.md"
     "../code/ToggleSwitchPageCode1.md"
+    "../code/CheckBoxPageCode2.md"
 )
 source_group(TREE ${CMAKE_SOURCE_DIR} FILES ${CODE_FILES})
 
@@ -598,6 +604,18 @@ set(QSS_FILES
     "../StyleSheet/light/FluToggleButtonPage.qss"
     "../StyleSheet/light/FluToggleSwitchPage.qss"
     "../StyleSheet/light/FluTypeographyPage.qss"
+    "../StyleSheet/dark/FluLayoutPage.qss"
+    "../StyleSheet/dark/FluMediaPage.qss"
+    "../StyleSheet/dark/FluMenuAndToolBarsPage.qss"
+    "../StyleSheet/dark/FluNavigationPage.qss"
+    "../StyleSheet/dark/FluProgressBar.qss"
+    "../StyleSheet/dark/FluScrollingPage.qss"
+    "../StyleSheet/light/FluLayoutPage.qss"
+    "../StyleSheet/light/FluMediaPage.qss"
+    "../StyleSheet/light/FluMenuAndToolBarsPage.qss"
+    "../StyleSheet/light/FluNavigationPage.qss"
+    "../StyleSheet/light/FluScrollingPage.qss"
+    "../StyleSheet/light/FluTreeView.qss"
 )
 source_group(TREE ${CMAKE_SOURCE_DIR} FILES ${QSS_FILES})
 

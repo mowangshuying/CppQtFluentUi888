@@ -22,7 +22,6 @@ class FluMenuBarPage : public FluAEmptyPage
         addMenuBarWithAccelerators();
 
         FluStyleSheetUitls::setQssByFileName(":/StyleSheet/light/FluMenuBarPage.qss", this);
-        // connect(FluThemeUtils::getUtils(), &FluThemeUtils::themeChanged, [=](FluTheme theme) { onThemeChanged(); }); { onThemeChanged(); });
     }
 
     void addSimpleMenuBar()

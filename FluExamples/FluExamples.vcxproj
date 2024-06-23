@@ -73,14 +73,12 @@
     <Link>
       <AdditionalLibraryDirectories>$(OutDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>FluUtils.lib;FluControls.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <ForceSymbolReferences>?qInitResources_FluUtilsFonts@@YAHXZ;?qCleanupResources_FluUtilsFonts@@YAHXZ;?qInitResources_FluControlsQss@@YAHXZ;?qCleanupResources_FluControlsQss@@YAHXZ;%(ForceSymbolReferences)</ForceSymbolReferences>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Link>
       <AdditionalDependencies>FluUtils.lib;FluControls.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(OutDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <ForceSymbolReferences>?qInitResources_FluUtilsFonts@@YAHXZ;?qCleanupResources_FluUtilsFonts@@YAHXZ;?qInitResources_FluControlsQss@@YAHXZ;?qCleanupResources_FluControlsQss@@YAHXZ;%(ForceSymbolReferences)</ForceSymbolReferences>
     </Link>
     <ClCompile>
       <AdditionalIncludeDirectories>$(SolutionDir)3rdparty\framelesshelper\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
@@ -129,7 +127,7 @@
     <ClCompile Include="FluDropDownButtonDemo.cpp" />
     <ClCompile Include="FluFlipViewDemo.cpp" />
     <ClCompile Include="FluFlowLayoutDemo.cpp" />
-    <ClCompile Include="FluHNavigationDemo.cpp" />
+    <ClCompile Include="FluHNavigationViewDemo.cpp" />
     <ClCompile Include="FluInfoBadgeDemo.cpp" />
     <ClCompile Include="FluInfoBarDemo.cpp" />
     <ClCompile Include="FluLineEditDemo.cpp" />
@@ -150,7 +148,8 @@
     <ClCompile Include="FluTabBarDemo.cpp" />
     <ClCompile Include="FluTabDemo.cpp" />
     <ClCompile Include="FluExpandDemo.cpp" />
-    <ClCompile Include="FluVNavigationDemo.cpp" />
+    <ClCompile Include="FluTreeViewDemo.cpp" />
+    <ClCompile Include="FluVNavigationViewDemo.cpp" />
     <ClCompile Include="FluAllGlobalColorDemo.cpp" />
     <ClCompile Include="FluTabViewDemo.cpp" />
     <ClCompile Include="FluTextAreaDemo.cpp" />
@@ -177,11 +176,13 @@
     <QtMoc Include="FluExpandDemo.h" />
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="FluVNavigationDemo.h" />
+    <QtMoc Include="FluVNavigationViewDemo.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="resource.h" />
+    <QtMoc Include="FluTreeViewDemo.h" />
     <QtMoc Include="FluFrameLessDemo.h" />
-    <QtMoc Include="FluHNavigationDemo.h" />
+    <QtMoc Include="FluHNavigationViewDemo.h" />
     <ClInclude Include="FluTabViewDemo.h" />
     <QtMoc Include="FluTabBarDemo.h" />
     <QtMoc Include="FluTimePickerDemo.h" />
@@ -220,7 +221,7 @@
     <QtMoc Include="FluLineEditDemo.h" />
   </ItemGroup>
   <ItemGroup>
-    <QtRcc Include="FluExamplesQss.qrc" />
+    <ResourceCompile Include="FluExamples.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

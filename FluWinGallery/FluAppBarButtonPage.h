@@ -23,8 +23,6 @@ class FluAppBarButtonPage : public FluAEmptyPage
 
         addSymbolIconAppBarButton();
         addKeyboardAcceleratorAppBarButton();
-
-        // connect(FluThemeUtils::getUtils(), &FluThemeUtils::themeChanged, [=](FluTheme theme) { onThemeChanged(); }); { onThemeChanged(); });
     }
 
     void addSymbolIconAppBarButton()
@@ -49,7 +47,7 @@ class FluAppBarButtonPage : public FluAEmptyPage
 
         auto appBarButton = new FluAppBarButton(FluAwesomeType::Save);
         appBarButton->setText("Save");
-        appBarButton->setShortCut(QKeySequence(Qt::CTRL | Qt::Key_S));
+        appBarButton->setShortCut(QKeySequence(Qt::CTRL + Qt::Key_S));
         displayBox->getBodyLayout()->addWidget(appBarButton);
         connect(appBarButton, &FluAppBarButton::clicked, [=]() { LOG_DEBUG << "called"; });
 

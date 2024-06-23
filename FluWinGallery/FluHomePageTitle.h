@@ -40,7 +40,6 @@ class FluHomePageTitle : public FluWidget
         m_color2 = QColor(223, 231, 240);
         QString qss = FluStyleSheetUitls::getQssByFileName(":/StyleSheet/light/FluHomePageTitle.qss");
         setStyleSheet(qss);
-        // connect(FluThemeUtils::getUtils(), &FluThemeUtils::themeChanged, [=](FluTheme theme) { onThemeChanged(); }); { onThemeChanged(); });
     }
 
     void paintEvent(QPaintEvent* event)
