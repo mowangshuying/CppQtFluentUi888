@@ -12,6 +12,17 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/bin")
 
 find_package(Qt6 REQUIRED COMPONENTS Widgets Svg)
+
+if (MSVC_IDE)
+	message(STATUS "Qt6Widgets_LIBRARIES: ${Qt6Widgets_LIBRARIES}")
+	get_target_property(V_LOCATION ${Qt6Widgets_LIBRARIES} IMPORTED_LOCATION)
+	message(STATUS "V_LOCATION: ${V_LOCATION}")
+	cmake_path(GET V_LOCATION PARENT_PATH V_RUN_PATH)
+	message(STATUS "V_RUN_PATH: ${V_RUN_PATH}")
+	set(CMAKE_VS_DEBUGGER_ENVIRONMENT "PATH=%PATH%;${V_RUN_PATH}")
+	message(STATUS "CMAKE_VS_DEBUGGER_ENVIRONMENT: ${CMAKE_VS_DEBUGGER_ENVIRONMENT}")
+endif()
+
 qt_standard_project_setup()
 
 add_subdirectory("3rdparty")
@@ -20,32 +31,6 @@ add_subdirectory("FluExamples")
 add_subdirectory("FluIconTool")
 add_subdirectory("FluUtils")
 add_subdirectory("FluWinGallery")
-# add_subdirectory("res")
-# add_subdirectory("StyleSheet")
-
-# add_custom_target(resource_copy
-#     COMMAND ${CMAKE_COMMAND} -E copy_directory_if_different
-#     ${CMAKE_CURRENT_SOURCE_DIR}/res
-#     ${PROJECT_BINARY_DIR}/res
-#     COMMAND ${CMAKE_COMMAND} -E copy_directory_if_different
-#     ${CMAKE_CURRENT_SOURCE_DIR}/StyleSheet
-#     ${PROJECT_BINARY_DIR}/StyleSheet
-#     COMMAND ${CMAKE_COMMAND} -E copy_directory_if_different
-#     ${CMAKE_CURRENT_SOURCE_DIR}/code
-#     ${PROJECT_BINARY_DIR}/code
-# )
-
-# install(DIRECTORY res
-#     DESTINATION .
-# )
-
-# install(DIRECTORY StyleSheet
-#     DESTINATION .
-# )
-
-# install(DIRECTORY code
-#     DESTINATION .
-# )
 
 set(CPACK_SYSTEM_NAME ${CMAKE_SYSTEM_NAME}-${CMAKE_SYSTEM_PROCESSOR})
 if (CMAKE_BUILD_TYPE STREQUAL "Debug")

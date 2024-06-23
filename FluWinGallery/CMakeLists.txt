@@ -18,11 +18,7 @@ message(")")
 qt_add_executable(${TGT}
     ${DIR_SRCS}
 )
-
-qt_add_resources(${TGT} "FluWinGalleryRes"
-    PREFIX "/"
-    BASE ".."
-    FILES
+set(RES_FILES
     "../res/badgelogo.scale-100.png"
     "../res/badgelogo.scale-140.png"
     "../res/badgelogo.scale-180.png"
@@ -438,11 +434,15 @@ qt_add_resources(${TGT} "FluWinGalleryRes"
     "../res/Tiles/contrast-white/XAMLControlsGalleryWideTile.scale-200_contrast-white.png"
     "../res/Tiles/contrast-white/XAMLControlsGalleryWideTile.scale-400_contrast-white.png"
 )
+source_group(TREE ${CMAKE_SOURCE_DIR} FILES ${RES_FILES})
 
-qt_add_resources(${TGT} "FluWinGalleryCode"
+qt_add_resources(${TGT} "FluWinGalleryRes"
     PREFIX "/"
     BASE ".."
     FILES
+    ${RES_FILES}
+)
+set(CODE_FILES
     "../code/AppBarButtonPageCode1.md"
     "../code/BorderPageCode1.md"
     "../code/ButtonPageCode1.md"
@@ -490,10 +490,16 @@ qt_add_resources(${TGT} "FluWinGalleryCode"
     "../code/ToggleButtonPageCode1.md"
     "../code/ToggleSwitchPageCode1.md"
 )
-qt_add_resources(${TGT} "FluWinGalleryQss"
+source_group(TREE ${CMAKE_SOURCE_DIR} FILES ${CODE_FILES})
+
+qt_add_resources(${TGT} "FluWinGalleryCode"
     PREFIX "/"
     BASE ".."
     FILES
+    ${CODE_FILES}
+)
+
+set(QSS_FILES
     "../StyleSheet/dark/FluAEmptyPage.qss"
     "../StyleSheet/dark/FluAllSamplesPage.qss"
     "../StyleSheet/dark/FluAppBarButtonPage.qss"
@@ -593,6 +599,14 @@ qt_add_resources(${TGT} "FluWinGalleryQss"
     "../StyleSheet/light/FluToggleSwitchPage.qss"
     "../StyleSheet/light/FluTypeographyPage.qss"
 )
+source_group(TREE ${CMAKE_SOURCE_DIR} FILES ${QSS_FILES})
+
+qt_add_resources(${TGT} "FluWinGalleryQss"
+    PREFIX "/"
+    BASE ".."
+    FILES
+    ${QSS_FILES}
+)
 
 target_link_libraries(${TGT}
     PRIVATE
@@ -603,7 +617,6 @@ set_target_properties(${TGT} PROPERTIES
     WIN32_EXECUTABLE ON
     MACOSX_BUNDLE ON
 )
-# add_dependencies(${TGT} resource_copy)
 
 include(GNUInstallDirs)
 install(TARGETS ${TGT}

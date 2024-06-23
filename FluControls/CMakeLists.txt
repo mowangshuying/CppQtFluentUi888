@@ -19,10 +19,8 @@ qt_add_library(${TGT}
     STATIC 
     ${DIR_SRCS}
 )
-qt_add_resources(${TGT} "FluControlsQss"
-    PREFIX "/"
-    BASE ".."
-    FILES
+
+set(QSS_FILES 
     "../StyleSheet/dark/FluAmPmView.qss"
     "../StyleSheet/dark/FluAppBarButton.qss"
     "../StyleSheet/dark/FluAppBarToggleButton.qss"
@@ -191,11 +189,16 @@ qt_add_resources(${TGT} "FluControlsQss"
     "../StyleSheet/light/FluVScrollView.qss"
     "../StyleSheet/light/FluVSplitLine.qss"
 )
+source_group(TREE ${CMAKE_SOURCE_DIR} FILES ${QSS_FILES})
 
-qt_add_resources(${TGT} "FluControlsRes"
+qt_add_resources(${TGT} "FluControlsQss"
     PREFIX "/"
     BASE ".."
     FILES
+    ${QSS_FILES}
+)
+
+set(RES_FILES
     "../res/badgelogo.scale-100.png"
     "../res/badgelogo.scale-140.png"
     "../res/badgelogo.scale-180.png"
@@ -610,6 +613,14 @@ qt_add_resources(${TGT} "FluControlsRes"
     "../res/Tiles/contrast-white/XAMLControlsGalleryWideTile.scale-150_contrast-white.png"
     "../res/Tiles/contrast-white/XAMLControlsGalleryWideTile.scale-200_contrast-white.png"
     "../res/Tiles/contrast-white/XAMLControlsGalleryWideTile.scale-400_contrast-white.png"
+)
+source_group(TREE ${CMAKE_SOURCE_DIR} FILES ${RES_FILES})
+
+qt_add_resources(${TGT} "FluControlsRes"
+    PREFIX "/"
+    BASE ".."
+    FILES
+    ${RES_FILES}
 )
 
 target_link_libraries(${TGT}
