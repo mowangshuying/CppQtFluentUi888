@@ -20,8 +20,6 @@ class FluSplitButtonPage : public FluAEmptyPage
         addSplitButtonWithText();
 
         FluStyleSheetUitls::setQssByFileName(":/StyleSheet/light/FluSplitButtonPage.qss", this);
-
-        // connect(FluThemeUtils::getUtils(), &FluThemeUtils::themeChanged, [=](FluTheme theme) { onThemeChanged(); }); { onThemeChanged(); });
     }
 
     void addSplitButtonWithText()

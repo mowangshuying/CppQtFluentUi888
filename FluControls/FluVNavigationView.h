@@ -52,7 +52,7 @@ class FluVNavigationView : public FluWidget
 
   public slots:
     void onMenuItemClicked();
-    void onThemeChanged() override
+    void onThemeChanged()
     {
         // LOG_DEBUG << "called";
         if (FluThemeUtils::getUtils()->getTheme() == FluTheme::Light)

@@ -20,8 +20,6 @@ class FluAppBarToggleButtonPage : public FluAEmptyPage
         FluStyleSheetUitls::setQssByFileName(":/StyleSheet/light/FluAppBarToggleButtonPage.qss", this);
 
         addSymbolIconAppBarButton();
-
-        // connect(FluThemeUtils::getUtils(), &FluThemeUtils::themeChanged, [=](FluTheme theme) { onThemeChanged(); }); { onThemeChanged(); });
     }
 
     void addSymbolIconAppBarButton()

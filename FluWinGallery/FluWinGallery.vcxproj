@@ -45,7 +45,6 @@
     <QtInstall>6.5.1_msvc2019_64</QtInstall>
     <QtModules>core;gui;widgets;svg</QtModules>
     <QtBuildConfig>release</QtBuildConfig>
-    <QtDeploy>true</QtDeploy>
   </PropertyGroup>
   <Target Name="QtMsBuildNotFound" BeforeTargets="CustomBuild;ClCompile" Condition="!Exists('$(QtMsBuild)\qt.targets') or !Exists('$(QtMsBuild)\qt.props')">
     <Message Importance="High" Text="QtMsBuild: could not locate qt.targets, qt.props; project may not build correctly." />
@@ -65,23 +64,15 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
   </PropertyGroup>
-  <PropertyGroup Label="QtDeploy" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <QtDeploy>true</QtDeploy>
-  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Link>
       <AdditionalLibraryDirectories>$(OutDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>FluControls.lib;FluUtils.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <ForceSymbolReferences>?qInitResources_FluUtilsFonts@@YAHXZ;?qCleanupResources_FluUtilsFonts@@YAHXZ;?qInitResources_FluControlsQss@@YAHXZ;?qCleanupResources_FluControlsQss@@YAHXZ;%(ForceSymbolReferences)</ForceSymbolReferences>
     </Link>
     <ClCompile>
       <AdditionalIncludeDirectories>$(SolutionDir)3rdparty\framelesshelper\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
-    <PostBuildEvent />
-    <PreLinkEvent>
-      <Command>xcopy $(SolutionDir)3rdparty\framelesshelper\bin\$(QtBuildConfig)\*.dll $(OutDir) /F /Y</Command>
-    </PreLinkEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -90,11 +81,7 @@
     <Link>
       <AdditionalDependencies>FluControls.lib;FluUtils.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(OutDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <ForceSymbolReferences>?qInitResources_FluUtilsFonts@@YAHXZ;?qCleanupResources_FluUtilsFonts@@YAHXZ;?qInitResources_FluControlsQss@@YAHXZ;?qCleanupResources_FluControlsQss@@YAHXZ</ForceSymbolReferences>
     </Link>
-    <PreLinkEvent>
-      <Command>xcopy $(SolutionDir)3rdparty\framelesshelper\bin\$(QtBuildConfig)\*.dll $(OutDir) /F /Y</Command>
-    </PreLinkEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="Configuration">
     <ClCompile>
@@ -149,8 +136,12 @@
     <ClCompile Include="FluIconsPage.cpp" />
     <ClCompile Include="FluInfoBadgePage.cpp" />
     <ClCompile Include="FluInfoBarPage.cpp" />
+    <ClCompile Include="FluLayoutPage.cpp" />
     <ClCompile Include="FluListViewPage.cpp" />
+    <ClCompile Include="FluMediaPage.cpp" />
+    <ClCompile Include="FluMenuAndToolBarsPage.cpp" />
     <ClCompile Include="FluMenuBarPage.cpp" />
+    <ClCompile Include="FluNavigationPage.cpp" />
     <ClCompile Include="FluNumberBoxPage.cpp" />
     <ClCompile Include="FluPasswordBoxPage.cpp" />
     <ClCompile Include="FluPivotPage.cpp" />
@@ -160,6 +151,7 @@
     <ClCompile Include="FluRadioButtonsPage.cpp" />
     <ClCompile Include="FluRatingControlPage.cpp" />
     <ClCompile Include="FluRepeatButtonPage.cpp" />
+    <ClCompile Include="FluScrollingPage.cpp" />
     <ClCompile Include="FluSettingPage.cpp" />
     <ClCompile Include="FluSliderPage.cpp" />
     <ClCompile Include="FluSplitButtonPage.cpp" />
@@ -264,11 +256,6 @@
     <QtMoc Include="FluInfoBadgePage.h" />
   </ItemGroup>
   <ItemGroup>
-    <QtRcc Include="FluWinGalleryCode.qrc" />
-    <QtRcc Include="FluWinGalleryQss.qrc" />
-    <QtRcc Include="FluWinGalleryRes.qrc" />
-  </ItemGroup>
-  <ItemGroup>
     <QtMoc Include="FluInfoBarPage.h" />
   </ItemGroup>
   <ItemGroup>
@@ -321,6 +308,21 @@
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="FluAppBarToggleButtonPage.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="FluLayoutPage.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="FluMenuAndToolBarsPage.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="FluMediaPage.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="FluScrollingPage.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="FluNavigationPage.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

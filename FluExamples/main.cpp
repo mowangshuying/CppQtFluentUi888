@@ -1,7 +1,7 @@
 #include "../FluControls/FluVNavigationView.h"
 #include "FluButtonDemo.h"
 #include "FluChangeBgDemo.h"
-#include "FluVNavigationDemo.h"
+#include "FluVNavigationViewDemo.h"
 #include "FluTabDemo.h"
 #include <QApplication>
 #include "FluFlowLayoutDemo.h"
@@ -42,11 +42,14 @@
 #include "FluTabBarDemo.h"
 #include "FluTabViewDemo.h"
 #include "FluFrameLessDemo.h"
-#include "FluHNavigationDemo.h"
+#include "FluHNavigationViewDemo.h"
+#include "../FluUtils/FluUtils.h"
+#include "FluTreeViewDemo.h"
 
 int main(int argc, char **argv)
 {
     QApplication app(argc, argv);
+    FluLogUtils::__init();
 
     // FluChangeBackgroundWidget demo;
     // demo.show();
@@ -90,8 +93,8 @@ int main(int argc, char **argv)
     // FluButtonDemo demo;
     // demo.show();
 
-    // FluMenuDemo demo;
-    // demo.show();
+    //  FluMenuDemo demo;
+    //  demo.show();
 
     // FluDisplayBoxDemo demo;
     // demo.show();
@@ -201,7 +204,17 @@ int main(int argc, char **argv)
     // FluVNavigationDemo demo;
     // demo.show();
 
-    FluHNavigationDemo demo;
+    // FluHNavigationViewDemo demo;
+    // demo.show();
+
+    // FluTreeViewDemo demo;
+    // demo.show();
+
+    //FluToggleSwitchDemo demo;
+    //demo.show();
+
+    FluSliderDemo demo;
     demo.show();
+
     return app.exec();
 }

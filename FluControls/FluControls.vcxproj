@@ -150,6 +150,10 @@
     <ClCompile Include="FluLoopView.cpp" />
     <ClCompile Include="FluMenuBar.cpp" />
     <ClCompile Include="FluMessageBox.cpp" />
+    <ClCompile Include="FluTextToggleSwitchEx.cpp" />
+    <ClCompile Include="FluToggleSwitchEx.cpp" />
+    <ClCompile Include="FluTreeView.cpp" />
+    <ClCompile Include="FluTreeViewItemDelegate.cpp" />
     <ClCompile Include="FluVNavigationFlyIconTextItem.cpp" />
     <ClCompile Include="FluPasswordBox.cpp" />
     <ClCompile Include="FluPivot.cpp" />
@@ -232,6 +236,10 @@
     <QtMoc Include="FluTabWidget.h" />
   </ItemGroup>
   <ItemGroup>
+    <QtMoc Include="FluTextToggleSwitchEx.h" />
+    <QtMoc Include="FluToggleSwitchEx.h" />
+    <QtMoc Include="FluTreeViewItemDelegate.h" />
+    <QtMoc Include="FluTreeView.h" />
     <QtMoc Include="FluHNavigationFlyIconTextItem.h" />
     <QtMoc Include="FluHNavigationMoreItem.h" />
     <QtMoc Include="FluHNavigationSettingsItem.h" />
@@ -338,10 +346,6 @@
     <QtMoc Include="FluHCard.h" />
     <QtMoc Include="FluVCard.h" />
     <QtMoc Include="FluFrameLessWidget.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <QtRcc Include="FluControlsQss.qrc" />
-    <QtRcc Include="FluControlsRes.qrc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
