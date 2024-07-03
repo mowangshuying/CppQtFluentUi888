@@ -32,11 +32,9 @@ add_subdirectory("FluIconTool")
 add_subdirectory("FluUtils")
 add_subdirectory("FluWinGallery")
 
-set(CPACK_SYSTEM_NAME ${CMAKE_SYSTEM_NAME}-${CMAKE_SYSTEM_PROCESSOR})
-if (CMAKE_BUILD_TYPE STREQUAL "Debug")
-    string(APPEND CPACK_SYSTEM_NAME "-debug")
-endif()
 
+set(CPACK_PACKAGE_FILE_NAME "FluGalleryWin64Msvc")
+set(CPACK_INCLUDE_TOPLEVEL_DIRECTORY OFF)
 include(InstallRequiredSystemLibraries)
 set(CPACK_GENERATOR "ZIP")
 include(CPack)
