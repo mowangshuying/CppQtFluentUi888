@@ -54,6 +54,7 @@ class FluDropDownButton : public FluWidget
             m_menu->exec(leftBottomPos);
             //  m_menu->show();
         });
+        connect(m_menu, &FluMenu::actionTriggered, [=](QAction* action) { setText(action->text()); });
 
         FluStyleSheetUitls::setQssByFileName("../StyleSheet/light/FluDropDownButton.qss", this);
     }
