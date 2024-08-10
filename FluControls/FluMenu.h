@@ -16,6 +16,9 @@ class FluMenu : public QMenu
 
     void paintEvent(QPaintEvent* event);
 
+  signals:
+    void actionTriggered(QAction* action);
+
   public slots:
     void onThemeChanged();
 };
