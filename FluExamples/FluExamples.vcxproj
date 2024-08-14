@@ -38,12 +38,12 @@
   </ImportGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="QtSettings">
     <QtInstall>6.5.1_msvc2019_64</QtInstall>
-    <QtModules>core;gui;widgets;svg</QtModules>
+    <QtModules>core;gui;widgets;statemachine;svg</QtModules>
     <QtBuildConfig>debug</QtBuildConfig>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="QtSettings">
     <QtInstall>6.5.1_msvc2019_64</QtInstall>
-    <QtModules>core;gui;widgets;svg</QtModules>
+    <QtModules>core;gui;widgets;statemachine;svg</QtModules>
     <QtBuildConfig>release</QtBuildConfig>
   </PropertyGroup>
   <Target Name="QtMsBuildNotFound" BeforeTargets="CustomBuild;ClCompile" Condition="!Exists('$(QtMsBuild)\qt.targets') or !Exists('$(QtMsBuild)\qt.props')">
@@ -81,7 +81,7 @@
       <AdditionalLibraryDirectories>$(OutDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <ClCompile>
-      <AdditionalIncludeDirectories>$(SolutionDir)3rdparty\framelesshelper\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)3rdparty\framelesshelper\include;$(SolutionDir)3rdparty\qwindowkit\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="Configuration">
@@ -112,13 +112,19 @@
     <QtMoc Include="FluChangeBgDemo.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="FluAnimationDemo.cpp" />
+    <ClCompile Include="FluBusyProgressRingDemo.cpp" />
     <ClCompile Include="FluButtonDemo.cpp" />
     <ClCompile Include="FluCalendarDatePickerDemo.cpp" />
     <ClCompile Include="FluCalendarViewDemo.cpp" />
     <ClCompile Include="FluChangeBgDemo.cpp" />
     <ClCompile Include="FluCheckBoxDemo.cpp" />
     <ClCompile Include="FluColorDemo.cpp" />
+    <ClCompile Include="FluColorViewDemo.cpp" />
     <ClCompile Include="FluComboBoxDemo.cpp" />
+    <ClCompile Include="FluIntructionsDemo.cpp" />
+    <ClCompile Include="FluSettingsVersionBoxDemo.cpp" />
+    <ClCompile Include="FluTemplateDemo.cpp" />
     <ClCompile Include="FluFrameLessDemo.cpp" />
     <ClCompile Include="FluDisplay16.cpp" />
     <ClCompile Include="FluDisplayBoxDemo.cpp" />
@@ -148,7 +154,10 @@
     <ClCompile Include="FluTabBarDemo.cpp" />
     <ClCompile Include="FluTabDemo.cpp" />
     <ClCompile Include="FluExpandDemo.cpp" />
+    <ClCompile Include="FluTimeLineDemo.cpp" />
+    <ClCompile Include="FluTimeLineIconDemo.cpp" />
     <ClCompile Include="FluTreeViewDemo.cpp" />
+    <ClCompile Include="FluTriangleDemo.cpp" />
     <ClCompile Include="FluVNavigationViewDemo.cpp" />
     <ClCompile Include="FluAllGlobalColorDemo.cpp" />
     <ClCompile Include="FluTabViewDemo.cpp" />
@@ -179,6 +188,15 @@
     <QtMoc Include="FluVNavigationViewDemo.h" />
   </ItemGroup>
   <ItemGroup>
+    <QtMoc Include="FluTemplateDemo.h" />
+    <QtMoc Include="FluTriangleDemo.h" />
+    <QtMoc Include="FluTimeLineIconDemo.h" />
+    <QtMoc Include="FluTimeLineDemo.h" />
+    <ClInclude Include="FluAnimationDemo.h" />
+    <QtMoc Include="FluSettingsVersionBoxDemo.h" />
+    <QtMoc Include="FluColorViewDemo.h" />
+    <QtMoc Include="FluIntructionsDemo.h" />
+    <ClInclude Include="FluBusyProgressRingDemo.h" />
     <ClInclude Include="resource.h" />
     <QtMoc Include="FluTreeViewDemo.h" />
     <QtMoc Include="FluFrameLessDemo.h" />

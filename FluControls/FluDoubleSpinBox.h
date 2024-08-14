@@ -13,10 +13,20 @@ class FluDoubleSpinBox : public QDoubleSpinBox
         connect(FluThemeUtils::getUtils(), &FluThemeUtils::themeChanged, this, [=](FluTheme theme) { onThemeChanged(); });
     }
 
+    void paintEvent(QPaintEvent* event)
+    {
+        QDoubleSpinBox::paintEvent(event);
+        if (!hasFocus())
+            return;
+
+        QPainter painter(this);
+        FluStyleSheetUitls::drawBottomLineIndicator(this, &painter);
+    }
+
   public slots:
     void onThemeChanged()
     {
-        if (FluThemeUtils::getUtils()->getTheme() == FluTheme::Light)
+        if (FluThemeUtils::isLightTheme())
         {
             FluStyleSheetUitls::setQssByFileName(":/StyleSheet/light/FluDoubleSpinBox.qss", this);
         }

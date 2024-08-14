@@ -69,20 +69,20 @@
       <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
     </Link>
     <ClCompile>
-      <AdditionalIncludeDirectories>$(SolutionDir)3rdparty\framelesshelper\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)3rdparty\framelesshelper\include;$(SolutionDir)3rdparty\qwindowkit\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Lib>
-      <AdditionalDependencies>FramelessHelperCore64d.lib;FramelessHelperQuick64d.lib;FramelessHelperWidgets64d.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)3rdparty\framelesshelper\lib\debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>FramelessHelperCore64d.lib;FramelessHelperQuick64d.lib;FramelessHelperWidgets64d.lib;QWKCored.lib;QWKWidgetsd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)3rdparty\framelesshelper\lib\debug;$(SolutionDir)3rdparty\qwindowkit\lib\debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>$(SolutionDir)3rdparty\framelesshelper\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)3rdparty\framelesshelper\include;$(SolutionDir)3rdparty\qwindowkit\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Lib>
-      <AdditionalDependencies>FramelessHelperCore64.lib;FramelessHelperQuick64.lib;FramelessHelperWidgets64.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)3rdparty\framelesshelper\lib\release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>FramelessHelperCore64.lib;FramelessHelperQuick64.lib;FramelessHelperWidgets64.lib;QWKCore.lib;QWKWidgets.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)3rdparty\framelesshelper\lib\release;$(SolutionDir)3rdparty\qwindowkit\lib\release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="Configuration">
@@ -119,6 +119,7 @@
     <ClCompile Include="FluAppBarToggleButton.cpp" />
     <ClCompile Include="FluAutoSuggestBox.cpp" />
     <ClCompile Include="FluBorder.cpp" />
+    <ClCompile Include="FluBusyProgressRing.cpp" />
     <ClCompile Include="FluCalendarDatePicker.cpp" />
     <ClCompile Include="FluCalendarItem.cpp" />
     <ClCompile Include="FluCalendarSelectDayView.cpp" />
@@ -126,8 +127,13 @@
     <ClCompile Include="FluCalendarSelectYearView.cpp" />
     <ClCompile Include="FluCalendarView.cpp" />
     <ClCompile Include="FluCalendarViewTitle.cpp" />
+    <ClCompile Include="FluCircleDot.cpp" />
     <ClCompile Include="FluColorButton.cpp" />
     <ClCompile Include="FluColorLabel.cpp" />
+    <ClCompile Include="FluColorView.cpp" />
+    <ClCompile Include="FluColorViewGradient.cpp" />
+    <ClCompile Include="FluColorViewHHandle.cpp" />
+    <ClCompile Include="FluColorViewVHandle.cpp" />
     <ClCompile Include="FluComboBoxEx.cpp" />
     <ClCompile Include="FluConfirmFlyout.cpp" />
     <ClCompile Include="FluDatePicker.cpp" />
@@ -145,15 +151,25 @@
     <ClCompile Include="FluHScrollView.cpp" />
     <ClCompile Include="FluInfoBadge.cpp" />
     <ClCompile Include="FluInfoBarMgr.cpp" />
+    <ClCompile Include="FluIntructions.cpp" />
+    <ClCompile Include="FluIntValidator.cpp" />
     <ClCompile Include="FluListView.cpp" />
     <ClCompile Include="FluListViewItemDelegate.cpp" />
     <ClCompile Include="FluLoopView.cpp" />
     <ClCompile Include="FluMenuBar.cpp" />
     <ClCompile Include="FluMessageBox.cpp" />
+    <ClCompile Include="FluPPushButton.cpp" />
+    <ClCompile Include="FluSettingsVersionBox.cpp" />
+    <ClCompile Include="FluTeachingTip.cpp" />
+    <ClCompile Include="FluTextEditWrap.cpp" />
     <ClCompile Include="FluTextToggleSwitchEx.cpp" />
+    <ClCompile Include="FluTimeLine.cpp" />
+    <ClCompile Include="FluTimeLineIcon.cpp" />
+    <ClCompile Include="FluTimeLineItem.cpp" />
     <ClCompile Include="FluToggleSwitchEx.cpp" />
     <ClCompile Include="FluTreeView.cpp" />
     <ClCompile Include="FluTreeViewItemDelegate.cpp" />
+    <ClCompile Include="FluTriangle.cpp" />
     <ClCompile Include="FluVNavigationFlyIconTextItem.cpp" />
     <ClCompile Include="FluPasswordBox.cpp" />
     <ClCompile Include="FluPivot.cpp" />
@@ -225,6 +241,9 @@
     <ClCompile Include="FluColorFlyout.cpp" />
     <ClCompile Include="FluVSplitLine.cpp" />
     <ClCompile Include="FluWidget.cpp" />
+    <ClCompile Include="FluWindowkitButton.cpp" />
+    <ClCompile Include="FluWindowKitTitleBar.cpp" />
+    <ClCompile Include="FluWindowKitWidget.cpp" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="FluDef.h" />
@@ -236,6 +255,24 @@
     <QtMoc Include="FluTabWidget.h" />
   </ItemGroup>
   <ItemGroup>
+    <QtMoc Include="FluWindowkitButton.h" />
+    <QtMoc Include="FluWindowKitTitleBar.h" />
+    <QtMoc Include="FluTimeLine.h" />
+    <QtMoc Include="FluTimeLineItem.h" />
+    <QtMoc Include="FluTimeLineIcon.h" />
+    <QtMoc Include="FluSettingsVersionBox.h" />
+    <QtMoc Include="FluColorViewGradient.h" />
+    <QtMoc Include="FluColorViewVHandle.h" />
+    <QtMoc Include="FluColorViewHHandle.h" />
+    <QtMoc Include="FluColorView.h" />
+    <QtMoc Include="FluIntructions.h" />
+    <QtMoc Include="FluBusyProgressRing.h" />
+    <ClInclude Include="FluIntValidator.h" />
+    <QtMoc Include="FluTextEditWrap.h" />
+    <QtMoc Include="FluPPushButton.h" />
+    <ClInclude Include="FluWindowKitWidget.h" />
+    <QtMoc Include="FluTeachingTip.h" />
+    <QtMoc Include="FluTriangle.h" />
     <QtMoc Include="FluTextToggleSwitchEx.h" />
     <QtMoc Include="FluToggleSwitchEx.h" />
     <QtMoc Include="FluTreeViewItemDelegate.h" />
@@ -323,6 +360,7 @@
     <QtMoc Include="FluColorLabel.h" />
     <QtMoc Include="FluCalendarViewTitle.h" />
     <QtMoc Include="FluColorButton.h" />
+    <QtMoc Include="FluCircleDot.h" />
     <ClInclude Include="FluComboBox.h" />
     <QtMoc Include="FluComboBoxTextItem.h" />
     <QtMoc Include="FluDropDownButton.h" />

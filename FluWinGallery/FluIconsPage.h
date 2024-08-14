@@ -8,6 +8,7 @@
 #include "../FluControls/FluFlowLayout.h"
 #include "../FluControls/FluDisplayIconBox.h"
 #include "../FluControls/FluFWScrollView.h"
+#include "../FluControls/FluIntructions.h"
 
 class FluIconsPage : public FluAEmptyPage
 {
@@ -16,15 +17,35 @@ class FluIconsPage : public FluAEmptyPage
     FluIconsPage(QWidget* parent = nullptr) : FluAEmptyPage(parent)
     {
         m_mainLayout->setAlignment(Qt::AlignTop);
-        m_titleLabel->setText("IconsPage");
+        m_titleLabel->setText("Icons");
         // m_subTitleLabel->setText("CppQtFluentUi888::FluIcons");
         m_infoLabel->setText("With the release of Windows 11, Segoe Fluent Icons is the remmended icon font.");
 
-        //
+        // instructions
+        auto instructions = new FluIntructions;
+        instructions->setTitleLabelText("Instructions on how to use Segoe Fluent Icons");
+        instructions->addTitleContent("How to get the font", "On Windows 11: There's nothing you need to do, the font comes with Windows.\nOn Windows 10: Segoe Fluent Icons is not included by default on Windows 10. You can download it here.");
+
+        instructions->addVSplitLine();
+
+        instructions->addTitleContent(
+            "How to use the font",
+            "If you don't specify a FontFamily, or you specify a FontFamily that is not available on the system at runtime, the FontIcon falls back to the default font family defined by the SymbolThemeFontFamily resource.\n"
+            "An icon with a 16-epx font size is the equivalent of a 16x16-epx icon, to make sizing and positioning more predictable. For optimal appearance, use these specific sizes: 16, 20, 24, 32, 40, 48, and 64. Deviating from these font "
+            "sizes could lead to less crisp or blurry outcomes.\n"
+            "All glyphs in Segoe Fluent Icons have the same fixed width with a consistent height and left origin point, so layering and colorization effects can be achieved by drawing glyphs directly on top of each other.");
+
+        // instructions->addEnd();
+        m_vScrollView->getMainLayout()->addWidget(instructions);
+
+        m_vScrollView->getMainLayout()->addSpacing(15);
+
         m_searchLabel = new QLabel;
         m_searchLabel->setObjectName("searchLabel");
         m_searchLabel->setText("Fluent Icons Library.");
         m_vScrollView->getMainLayout()->addWidget(m_searchLabel);
+
+        m_vScrollView->getMainLayout()->addSpacing(5);
 
         m_searchEdit = new FluSearchLineEdit;
         m_searchEdit->setFixedWidth(300);
@@ -155,29 +176,10 @@ class FluIconsPage : public FluAEmptyPage
         FluStyleSheetUitls::setQssByFileName(":/StyleSheet/light/FluIconsPage.qss", this);
     }
 
-    //  void paintEvent(QPaintEvent* event)
-    //   {
-    //      QStyleOption opt;
-    //      opt.initFrom(this);
-    //      QPainter painter(this);
-    //     style()->drawPrimitive(QStyle::PE_Widget, &opt, &painter, this);
-    //  }
-
-    // void showEvent(QShowEvent* event)
-    // {
-    //     LOG_DEBUG << "show Event";
-    //    onThemeChanged();
-    // }
-
-    //  void hideEvent(QHideEvent* event)
-    //  {
-    //     LOG_DEBUG << "hide Event";
-    // }
-
   public slots:
     void onThemeChanged()
     {
-        if (FluThemeUtils::getUtils()->getTheme() == FluTheme::Light)
+        if (FluThemeUtils::isLightTheme())
         {
             m_penColor = QColor(8, 8, 8);
             QPixmap pixmap = FluIconUtils::getFluentIconPixmap(m_sDisplayIconBox->getAwesomeType(), m_penColor);

@@ -12,7 +12,8 @@ class FluVSplitLine : public FluWidget
     FluVSplitLine(QWidget* parent = nullptr) : FluWidget(parent)
     {
         setFixedHeight(1);
-        FluStyleSheetUitls::setQssByFileName(":/StyleSheet/light/FluVSplitLine.qss", this);
+        //FluStyleSheetUitls::setQssByFileName(":/StyleSheet/light/FluVSplitLine.qss", this);
+        onThemeChanged();
     }
 
     void paintEvent(QPaintEvent* event)
@@ -25,7 +26,7 @@ class FluVSplitLine : public FluWidget
   public slots:
     void onThemeChanged()
     {
-        if (FluThemeUtils::getUtils()->getTheme() == FluTheme::Light)
+        if (FluThemeUtils::isLightTheme())
         {
             FluStyleSheetUitls::setQssByFileName(":/StyleSheet/light/FluVSplitLine.qss", this);
         }

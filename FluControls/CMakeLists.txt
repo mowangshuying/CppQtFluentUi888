@@ -20,11 +20,13 @@ qt_add_library(${TGT}
     ${DIR_SRCS}
 )
 
-set(QSS_FILES 
+set(QSS_FILES
     "../StyleSheet/dark/FluAmPmView.qss"
     "../StyleSheet/dark/FluAppBarButton.qss"
     "../StyleSheet/dark/FluAppBarToggleButton.qss"
     "../StyleSheet/dark/FluAutoSuggestBox.qss"
+    "../StyleSheet/dark/FluBorder.qss"
+    "../StyleSheet/dark/FluBusyProgressRing.qss"
     "../StyleSheet/dark/FluCalendarDatePicker.qss"
     "../StyleSheet/dark/FluCalendarMonthView.qss"
     "../StyleSheet/dark/FluCalendarSelectMonthView.qss"
@@ -33,6 +35,7 @@ set(QSS_FILES
     "../StyleSheet/dark/FluCalendarViewTitle.qss"
     "../StyleSheet/dark/FluCalendarViewWeakTitle.qss"
     "../StyleSheet/dark/FluCheckBox.qss"
+    "../StyleSheet/dark/FluCircleDot.qss"
     "../StyleSheet/dark/FluCodeBox.qss"
     "../StyleSheet/dark/FluColorFlyout.qss"
     "../StyleSheet/dark/FluComboBox.qss"
@@ -71,6 +74,7 @@ set(QSS_FILES
     "../StyleSheet/dark/FluSearchLineEdit.qss"
     "../StyleSheet/dark/FluSettingsLabelBox.qss"
     "../StyleSheet/dark/FluSettingsSelectBox.qss"
+    "../StyleSheet/dark/FluSettingsVersionBox.qss"
     "../StyleSheet/dark/FluShortInfoBar.qss"
     "../StyleSheet/dark/FluSlider.qss"
     "../StyleSheet/dark/FluSpinBox.qss"
@@ -101,6 +105,7 @@ set(QSS_FILES
     "../StyleSheet/light/FluAppBarToggleButton.qss"
     "../StyleSheet/light/FluAutoSuggestBox.qss"
     "../StyleSheet/light/FluBorder.qss"
+    "../StyleSheet/light/FluBusyProgressRing.qss"
     "../StyleSheet/light/FluCalendarDatePicker.qss"
     "../StyleSheet/light/FluCalendarMonthView.qss"
     "../StyleSheet/light/FluCalendarSelectMonthView.qss"
@@ -109,6 +114,7 @@ set(QSS_FILES
     "../StyleSheet/light/FluCalendarViewTitle.qss"
     "../StyleSheet/light/FluCalendarViewWeakTitle.qss"
     "../StyleSheet/light/FluCheckBox.qss"
+    "../StyleSheet/light/FluCircleDot.qss"
     "../StyleSheet/light/FluCodeBox.qss"
     "../StyleSheet/light/FluColorButton.qss"
     "../StyleSheet/light/FluColorFlyout.qss"
@@ -159,6 +165,7 @@ set(QSS_FILES
     "../StyleSheet/light/FluSearchLineEdit.qss"
     "../StyleSheet/light/FluSettingsLabelBox.qss"
     "../StyleSheet/light/FluSettingsSelectBox.qss"
+    "../StyleSheet/light/FluSettingsVersionBox.qss"
     "../StyleSheet/light/FluShortInfoBar.qss"
     "../StyleSheet/light/FluSlider.qss"
     "../StyleSheet/light/FluSpinBox.qss"
@@ -626,5 +633,6 @@ qt_add_resources(${TGT} "FluControlsRes"
 target_link_libraries(${TGT}
     PUBLIC
     framelesshelper
+    qwindowkit
     FluUtils
 )

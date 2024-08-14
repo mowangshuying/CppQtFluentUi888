@@ -44,6 +44,8 @@ class FluCalendarDatePicker : public QPushButton
             m_textButton->setText(dateText);
             LOG_DEBUG << date;
             m_calendarView->hide();
+
+            emit selectedDate(date);
         });
 
         connect(this, &FluCalendarDatePicker::clicked, [=]() { onClicked(); });
@@ -56,6 +58,21 @@ class FluCalendarDatePicker : public QPushButton
         //     onThemeChanged();
         // });
     }
+
+    QDate getCurDate()
+    {
+        return m_calendarView->getCurDate();
+    }
+
+    void setCurDate(QDate date)
+    {
+        m_calendarView->setCurDate(date);
+
+        emit m_calendarView->selectedDate(date);
+    }
+
+  signals:
+    void selectedDate(QDate date);
 
   public slots:
     void onClicked()
@@ -81,7 +98,7 @@ class FluCalendarDatePicker : public QPushButton
 
     void onThemeChanged()
     {
-        if (FluThemeUtils::getUtils()->getTheme() == FluTheme::Light)
+        if (FluThemeUtils::isLightTheme())
         {
             m_iconButton->setIcon(FluIconUtils::getFluentIcon(FluAwesomeType::Calendar));
             FluStyleSheetUitls::setQssByFileName(":/StyleSheet/light/FluCalendarDatePicker.qss", this);

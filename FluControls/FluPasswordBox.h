@@ -98,12 +98,17 @@ class FluPasswordBox : public FluWidget
         opt.initFrom(this);
         QPainter painter(this);
         style()->drawPrimitive(QStyle::PE_Widget, &opt, &painter, this);
+
+        if (!property("isFocused").toBool())
+            return;
+
+        FluStyleSheetUitls::drawBottomLineIndicator(this, &painter);
     }
 
   public slots:
     void onThemeChanged()
     {
-        if (FluThemeUtils::getUtils()->getTheme() == FluTheme::Light)
+        if (FluThemeUtils::isLightTheme())
         {
             m_btn->setIcon(FluIconUtils::getFluentIcon(FluAwesomeType::RedEye, FluTheme::Light));
             FluStyleSheetUitls::setQssByFileName(":/StyleSheet/light/FluPasswordBox.qss", this);

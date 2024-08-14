@@ -72,20 +72,13 @@ class FluRotationButton : public QPushButton
 
     void onThemeChanged()
     {
-        if (FluThemeUtils::getUtils()->getTheme() == FluTheme::Light)
+        if (FluThemeUtils::isLightTheme())
         {
-            // m_penColor = QColor(8, 8, 8);
-            // QPixmap pixmap = FluIconUtils::getFluentIconPixmap(m_awesomeType, m_penColor);
-            // setIcon(QIcon(pixmap));
-
             setIcon(FluIconUtils::getFluentIcon(m_awesomeType, FluTheme::Light));
             FluStyleSheetUitls::setQssByFileName(":/StyleSheet/light/FluRotationButton.qss", this);
         }
         else
         {
-            // m_penColor = QColor(239, 239, 239);
-            // QPixmap pixmap = FluIconUtils::getFluentIconPixmap(m_awesomeType, m_penColor);
-            // setIcon(QIcon(pixmap));
             setIcon(FluIconUtils::getFluentIcon(m_awesomeType, FluTheme::Dark));
             FluStyleSheetUitls::setQssByFileName(":/StyleSheet/dark/FluRotationButton.qss", this);
         }

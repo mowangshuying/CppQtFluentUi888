@@ -104,25 +104,28 @@ FluGalleryWindow::FluGalleryWindow(QWidget *parent /*= nullptr*/) : FluFrameLess
 void FluGalleryWindow::closeEvent(QCloseEvent *event)
 {
     // FluMessageBox messageBox("Close Gallery Window?", "choose \"Ok\" to close. choose \"Cancel\" do nothing.", this);
-    // messageBox.exec();
+    //  messageBox.exec();
 
     // int nExec = messageBox.exec();
     // if (nExec == QDialog::Rejected)
-    // {
-    // m_titleBar->show();
-    // event->ignore(); // can't run it! has some bug.
-    // return;
-    //  }
-    //  else if (nExec == QDialog::Accepted)
-    //  {
-    //     event->accept();
-    // }
+    //{
+    //     // m_titleBar->show();
+    //     event->ignore();  // can't run it! has some bug.
+
+    //   // FramelessWidgetsHelper *helper = FramelessWidgetsHelper::get(this);
+    //   // helper->setTitleBarWidget(m_titleBar);
+    //    return;
+    //}
+    // else if (nExec == QDialog::Accepted)
+    //{
+    //    event->accept();
+    //}
 }
 
 void FluGalleryWindow::onThemeChanged()
 {
     // LOG_DEBUG << "Func Beg";
-    if (FluThemeUtils::getUtils()->getTheme() == FluTheme::Light)
+    if (FluThemeUtils::isLightTheme())
     {
         m_titleBar->chromePalette()->setTitleBarActiveBackgroundColor(Qt::transparent);
         m_titleBar->chromePalette()->setTitleBarInactiveBackgroundColor(Qt::transparent);

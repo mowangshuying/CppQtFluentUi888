@@ -14,7 +14,7 @@ class FluCalendarDatePickerPage : public FluAEmptyPage
     {
         m_mainLayout->setAlignment(Qt::AlignTop);
 
-        m_titleLabel->setText("CalendarDatePickerPage");
+        m_titleLabel->setText("CalendarDatePicker");
         m_infoLabel->setText("A control that lets users pick a date value using a calendar.");
 
         auto displayBox = new FluDisplayBox;
@@ -32,7 +32,7 @@ class FluCalendarDatePickerPage : public FluAEmptyPage
   public slots:
     void onThemeChanged()
     {
-        if (FluThemeUtils::getUtils()->getTheme() == FluTheme::Light)
+        if (FluThemeUtils::isLightTheme())
         {
             FluStyleSheetUitls::setQssByFileName(":/StyleSheet/light/FluCalendarDatePickerPage.qss", this);
         }

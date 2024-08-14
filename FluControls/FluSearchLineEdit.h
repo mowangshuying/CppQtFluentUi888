@@ -8,6 +8,8 @@
 #include <QPaintEvent>
 #include <QStyleOption>
 #include <QPainter>
+#include <QPaintEvent>
+#include <QPainterPath>
 
 class FluSearchLineEdit : public FluWidget
 {
@@ -27,7 +29,6 @@ class FluSearchLineEdit : public FluWidget
         m_btn->setIconSize(QSize(18, 18));
         m_btn->setIcon(FluIconUtils::getFluentIcon(FluAwesomeType::Search));
 
-        //  m_edit->setFixedWidth(120);
         m_edit->setFixedHeight(30);
 
         m_hLayout->addWidget(m_edit, 1);
@@ -48,6 +49,21 @@ class FluSearchLineEdit : public FluWidget
     QString getText()
     {
         return m_edit->text();
+    }
+
+    void setText(QString text)
+    {
+        m_edit->setText(text);
+    }
+
+    void setPlaceholderText(QString text)
+    {
+        m_edit->setPlaceholderText(text);
+    }
+
+    QString getPlaceholderText()
+    {
+        return m_edit->placeholderText();
     }
 
     bool eventFilter(QObject* watched, QEvent* event)
@@ -79,24 +95,24 @@ class FluSearchLineEdit : public FluWidget
         return QWidget::eventFilter(watched, event);
     }
 
-    // void resizeEvent(QResizeEvent* event)
-    //{
-    //     //m_edit->resize(width() - m_btn->width() - m_hLayout->contentsMargins().left() - m_hLayout->contentsMargins().right() - 4, m_edit->height());
-    // }
-
     void paintEvent(QPaintEvent* event)
     {
         QStyleOption opt;
         opt.initFrom(this);
         QPainter painter(this);
         style()->drawPrimitive(QStyle::PE_Widget, &opt, &painter, this);
+
+        if (!property("isFocused").toBool())
+            return;
+
+        FluStyleSheetUitls::drawBottomLineIndicator(this, &painter);
     }
   signals:
     void onSearchBtnClicked();
   public slots:
     void onThemeChanged()
     {
-        if (FluThemeUtils::getUtils()->getTheme() == FluTheme::Light)
+        if (FluThemeUtils::isLightTheme())
         {
             m_btn->setIcon(FluIconUtils::getFluentIcon(FluAwesomeType::Search, FluTheme::Light));
             FluStyleSheetUitls::setQssByFileName(":/StyleSheet/light/FluSearchLineEdit.qss", this);

@@ -5,6 +5,10 @@
 #include "../FluUtils/FluUtils.h"
 #include "../FluControls/FluDisplayBox.h"
 #include "../FluControls/FluVScrollView.h"
+#include "../FluControls/FluDisplayBoxEx.h"
+#include "../FluControls/FluLabel.h"
+#include "../FluControls/FluComboBoxEx.h"
+#include "../FluControls/FluBusyProgressRing.h"
 
 class FluProgressRingPage : public FluAEmptyPage
 {
@@ -13,30 +17,87 @@ class FluProgressRingPage : public FluAEmptyPage
     FluProgressRingPage(QWidget* parent = nullptr) : FluAEmptyPage(parent)
     {
         m_mainLayout->setAlignment(Qt::AlignTop);
-        m_titleLabel->setText("ProgressRingPage");
+        m_titleLabel->setText("ProgressRing");
         // m_subTitleLabel->setText("CppQtFluentUi888::FluProgressRing");
 
         m_infoLabel->setText("The ProgressRing has two different visual representations.\nIndeterminate - shows that a task is ongoing.but blocks user interaction.\nDeterminate - shows how much progress has been made on a known amount of work.");
 
-        auto displayBox1 = new FluDisplayBox;
-        displayBox1->setTitle("An indeterminate progress ring.");
-        displayBox1->getCodeExpander()->setCodeByPath(":/code/ProgressRingPageCode1.md");
-        displayBox1->setBodyWidgetFixedHeight(96);
+        addIndeterminateProgressRing();
 
-        auto progressRing1 = new FluProgressRing(displayBox1);
-        progressRing1->move(50, 50);
+        addIndeterminateRing();
+
+        addBusyRing();
+
+        FluStyleSheetUitls::setQssByFileName(":/StyleSheet/light/FluProgressRingPage.qss", this);
+    }
+
+    void addIndeterminateProgressRing()
+    {
+        auto displayBox = new FluDisplayBoxEx;
+        displayBox->getBodyContentLayout()->setAlignment(Qt::AlignTop);
+        displayBox->getBodyRightLayout()->setAlignment(Qt::AlignTop);
+        displayBox->setTitle("An indeterminate progress ring.");
+        displayBox->getCodeExpander()->setCodeByPath(":/code/ProgressRingPageCode1.md");
+        displayBox->setBodyWidgetFixedHeight(96);
+
+        auto hBoxLayout = new QHBoxLayout;
+        hBoxLayout->setContentsMargins(0, 0, 0, 0);
+        // hBoxLayout->setAlignment(Qt::AlignVCenter | Qt::AlignLeft);
+
+        auto progressRing1 = new FluProgressRing;
         progressRing1->setWorking(true);
 
-        m_vScrollView->getMainLayout()->addWidget(displayBox1, 0, Qt::AlignTop);
+        auto progressRing2 = new FluProgressRing;
+        progressRing2->setFixedSize(30, 30);
+        progressRing2->setWorking(true);
 
-        auto displayBox2 = new FluDisplayBox;
-        displayBox2->setTitle("An indeterminate ring.");
-        displayBox2->getCodeExpander()->setCodeByPath(":/code/ProgressRingPageCode2.md");
-        displayBox2->setBodyWidgetFixedHeight(96);
+        auto progressRing3 = new FluProgressRing;
+        progressRing3->setFixedSize(25, 25);
+        progressRing3->setWorking(true);
 
-        auto progressRing2 = new FluProgressRing(displayBox2);
-        progressRing2->move(50, 50);
-        progressRing2->setShowText(true);
+        hBoxLayout->addWidget(progressRing1);
+        hBoxLayout->addWidget(progressRing2);
+        hBoxLayout->addWidget(progressRing3);
+        displayBox->getBodyContentLayout()->addLayout(hBoxLayout);
+
+        auto progressOptionsLabel = new FluLabel(FluLabelStyle::CaptionTextBlockSylte);
+        progressOptionsLabel->setText("Track Background color");
+
+        auto comboBox = new FluComboBoxEx;
+        comboBox->addItem("Transparent");
+        comboBox->addItem("LightGray");
+        connect(comboBox, &FluComboBoxEx::currentIndexChanged, [=](int index) {
+            if (index == 0)
+            {
+                progressRing1->setTransparentTrack(true);
+                progressRing2->setTransparentTrack(true);
+                progressRing3->setTransparentTrack(true);
+            }
+            else
+            {
+                progressRing1->setTransparentTrack(false);
+                progressRing2->setTransparentTrack(false);
+                progressRing3->setTransparentTrack(false);
+            }
+        });
+
+        //  displayBox->getBodyContentLayout()->addWidget(progressRing1);
+        displayBox->getBodyRightLayout()->addWidget(progressOptionsLabel, 0, Qt::AlignTop);
+        displayBox->getBodyRightLayout()->addWidget(comboBox, 0, Qt::AlignTop);
+
+        m_vScrollView->getMainLayout()->addWidget(displayBox, 0, Qt::AlignTop);
+    }
+
+    void addIndeterminateRing()
+    {
+        auto displayBox = new FluDisplayBox;
+        displayBox->setTitle("An indeterminate ring.");
+        displayBox->getCodeExpander()->setCodeByPath(":/code/ProgressRingPageCode2.md");
+        displayBox->setBodyWidgetFixedHeight(96);
+
+        auto progressRing = new FluProgressRing(displayBox);
+        progressRing->move(50, 50);
+        progressRing->setShowText(true);
         // progressRing->setCurValue(85);
 
         QTimer* timer = new QTimer(this);
@@ -47,18 +108,31 @@ class FluProgressRingPage : public FluAEmptyPage
         connect(timer, &QTimer::timeout, [=]() {
             m_nTimes++;
             m_nTimes = m_nTimes %= 100;
-            progressRing2->setCurValue(m_nTimes);
+            progressRing->setCurValue(m_nTimes);
         });
 
         // displayBox1->getBodyLayout()->addWidget(checkBox);
-        m_vScrollView->getMainLayout()->addWidget(displayBox2, 0, Qt::AlignTop);
-        FluStyleSheetUitls::setQssByFileName(":/StyleSheet/light/FluProgressRingPage.qss", this);
+        m_vScrollView->getMainLayout()->addWidget(displayBox, 0, Qt::AlignTop);
+    }
+
+    void addBusyRing()
+    {
+        auto displayBox = new FluDisplayBox;
+        displayBox->setTitle("An busy ring.");
+        displayBox->getCodeExpander()->setCodeByPath(":/code/ProgressRingPageCode3.md");
+        displayBox->setBodyWidgetFixedHeight(96);
+
+        auto busyRing = new FluBusyProgressRing(displayBox);
+        busyRing->move(50, 50);
+
+        // displayBox1->getBodyLayout()->addWidget(checkBox);
+        m_vScrollView->getMainLayout()->addWidget(displayBox, 0, Qt::AlignTop);
     }
 
   public slots:
     void onThemeChanged()
     {
-        if (FluThemeUtils::getUtils()->getTheme() == FluTheme::Light)
+        if (FluThemeUtils::isLightTheme())
         {
             FluStyleSheetUitls::setQssByFileName(":/StyleSheet/light/FluProgressRingPage.qss", this);
         }

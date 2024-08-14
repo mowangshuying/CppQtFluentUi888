@@ -45,6 +45,16 @@
 #include "FluHNavigationViewDemo.h"
 #include "../FluUtils/FluUtils.h"
 #include "FluTreeViewDemo.h"
+#include "FluTemplateDemo.h"
+#include "FluTriangleDemo.h"
+#include "../FluControls/FluWindowKitWidget.h"
+#include "FluTimeLineIconDemo.h"
+#include "FluTimeLineDemo.h"
+#include "FluAnimationDemo.h"
+#include "FluSettingsVersionBoxDemo.h"
+#include "FluColorViewDemo.h"
+#include "FluIntructionsDemo.h"
+#include "FluBusyProgressRingDemo.h"
 
 int main(int argc, char **argv)
 {
@@ -210,11 +220,49 @@ int main(int argc, char **argv)
     // FluTreeViewDemo demo;
     // demo.show();
 
-    //FluToggleSwitchDemo demo;
-    //demo.show();
+    // FluToggleSwitchDemo demo;
+    // demo.show();
 
-    FluSliderDemo demo;
+    // FluSliderDemo demo;
+    // demo.show();
+
+    // FluTemplateDemo demo;
+    // demo.show();
+
+    // FluTriangleDemo demo;
+    // demo.show();
+
+    // FluWindowKitWidget demo;
+    // demo.show();
+
+    // FluTimeLineIconDemo demo;
+    // demo.show();
+
+    // FluTimeLineDemo demo;
+    // demo.show();
+
+    // FluExpandDemo demo;
+    // demo.show();
+
+    // FluAnimationDemo demo;
+    // demo.show();
+
+    // FluSettingsVersionBoxDemo demo;
+    // demo.show();
+
+    // FluColorViewDemo demo;
+    // demo.show();
+
+    // FluIntructionsDemo demo;
+    // demo.show();
+
+    // FluBusyProgressRingDemo demo;
+    // demo.show();
+
+    // FluInfoBarDemo demo;
+    // demo.show();
+
+    FluButtonDemo demo;
     demo.show();
-
     return app.exec();
 }

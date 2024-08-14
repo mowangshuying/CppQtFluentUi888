@@ -24,6 +24,7 @@ class FluFlyoutPage : public FluAEmptyPage
         displayBox->setBodyWidgetFixedHeight(96);
 
         auto emptyCartBtn = new FluPushButton;
+        emptyCartBtn->setFixedWidth(96);
         emptyCartBtn->setText("Empty cart");
 
         connect(emptyCartBtn, &FluPushButton::clicked, this, [=]() {
@@ -42,7 +43,7 @@ class FluFlyoutPage : public FluAEmptyPage
   public slots:
     void onThemeChanged()
     {
-        if (FluThemeUtils::getUtils()->getTheme() == FluTheme::Light)
+        if (FluThemeUtils::isLightTheme())
         {
             FluStyleSheetUitls::setQssByFileName(":/StyleSheet/light/FluFlyoutPage.qss", this);
         }

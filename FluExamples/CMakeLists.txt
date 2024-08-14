@@ -35,4 +35,5 @@ qt_add_resources(${TGT} "FluExamplesQss"
 target_link_libraries(${TGT}
     PRIVATE
     FluControls
+    Qt6::StateMachine
 )

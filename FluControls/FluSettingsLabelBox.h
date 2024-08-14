@@ -39,7 +39,8 @@ class FluSettingsLabelBox : public FluWidget
         m_mainLayout->addWidget(m_versionLabel);
 
         setFixedHeight(70);
-        FluStyleSheetUitls::setQssByFileName(":/StyleSheet/light/FluSettingsLabelBox.qss", this);
+        //FluStyleSheetUitls::setQssByFileName(":/StyleSheet/light/FluSettingsLabelBox.qss", this);
+        onThemeChanged();
     }
 
     void setIcon(QIcon icon)
@@ -68,7 +69,7 @@ class FluSettingsLabelBox : public FluWidget
   public slots:
     void onThemeChanged()
     {
-        if (FluThemeUtils::getUtils()->getTheme() == FluTheme::Light)
+        if (FluThemeUtils::isLightTheme())
         {
             FluStyleSheetUitls::setQssByFileName(":/StyleSheet/light/FluSettingsLabelBox.qss", this);
         }

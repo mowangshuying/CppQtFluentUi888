@@ -17,6 +17,32 @@ class FluExpander : public FluWidget
   public:
     FluExpander(QWidget* parent = nullptr);
 
+    bool getDown()
+    {
+        return m_bDown;
+    }
+
+    void setDown(bool bDown)
+    {
+        m_bDown = bDown;
+        setProperty("down", bDown);
+        m_wrap1->setProperty("down", bDown);
+        m_wrap2->setProperty("down", bDown);
+
+        style()->polish(this);
+        m_wrap1->style()->polish(m_wrap1);
+        m_wrap2->style()->polish(m_wrap2);
+    }
+
+    void setTopRadius0(bool bTopRadius0)
+    {
+        m_wrap1->setProperty("topRadius0", bTopRadius0);
+        setProperty("topRadius0", bTopRadius0);
+
+        style()->polish(this);
+        m_wrap1->style()->polish(m_wrap1);
+    }
+
     void setWrap2Height(int h)
     {
         m_wrap2Height = h;
@@ -49,7 +75,32 @@ class FluExpander : public FluWidget
   public slots:
     void onThemeChanged();
 
+    virtual void onClicked()
+    {
+        if (m_bDown)
+        {
+            m_expandAni->setStartValue(QRect(m_wrap2->x(), m_wrap2->y(), m_wrap2->width(), 0));
+            m_expandAni->setEndValue(QRect(m_wrap2->x(), m_wrap2->y(), m_wrap2->width(), m_wrap2->sizeHint().height()));
+            m_expandAni->start();
+
+            m_downOrUpButton->setType1(FluAwesomeType::ChevronUp);
+            // m_bDown = false;
+            // setDown(false);
+        }
+        else
+        {
+            m_expandAni->setStartValue(QRect(m_wrap2->x(), m_wrap2->y(), m_wrap2->width(), m_wrap2->sizeHint().height()));
+            m_expandAni->setEndValue(QRect(m_wrap2->x(), m_wrap2->y(), m_wrap2->width(), 0));
+            m_expandAni->start();
+            m_downOrUpButton->setType1(FluAwesomeType::ChevronDown);
+            // m_bDown = true;
+            // setDown(true);
+        }
+    }
+
   protected:
+    QPropertyAnimation* m_expandAni;
+
     QVBoxLayout* m_mainLayout;
     QHBoxLayout* m_hWrap1Layout;
     QVBoxLayout* m_vWrap2Layout;

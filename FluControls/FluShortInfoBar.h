@@ -28,6 +28,10 @@ class FluShortInfoBar : public FluWidget
 
     void setInfoBarTypeProperty(QString infoBarType);
 
+    void setInfoBarType(FluShortInfoBarType type);
+
+    void setInfoBarText(QString infoBarText);
+
     void updateInfoBarTypeProperty(FluShortInfoBarType infoBarType);
 
     void disappear();
@@ -44,7 +48,7 @@ class FluShortInfoBar : public FluWidget
   public slots:
     void onThemeChanged()
     {
-        if (FluThemeUtils::getUtils()->getTheme() == FluTheme::Light)
+        if (FluThemeUtils::isLightTheme())
         {
             // if (m_closeBtn != nullptr)
             // {

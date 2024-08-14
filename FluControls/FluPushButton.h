@@ -15,16 +15,21 @@ class FluPushButton : public QPushButton
         setFixedSize(200, 30);
         // setFixedHeight(30);
         FluStyleSheetUitls::setQssByFileName(":/StyleSheet/light/FluPushButton.qss", this);
-        if (FluThemeUtils::getUtils()->getTheme() == FluTheme::Dark)
+        if (FluThemeUtils::isDarkTheme())
         {
             FluStyleSheetUitls::setQssByFileName(":/StyleSheet/dark/FluPushButton.qss", this);
         }
         connect(FluThemeUtils::getUtils(), &FluThemeUtils::themeChanged, this, [=](FluTheme theme) { onThemeChanged(); });
     }
+    
+	FluPushButton(const QString &text, QWidget *parent = nullptr) : FluPushButton(parent)
+    {
+        setText(text);
+    }
   public slots:
     void onThemeChanged()
     {
-        if (FluThemeUtils::getUtils()->getTheme() == FluTheme::Light)
+        if (FluThemeUtils::isLightTheme())
         {
             FluStyleSheetUitls::setQssByFileName(":/StyleSheet/light/FluPushButton.qss", this);
         }
