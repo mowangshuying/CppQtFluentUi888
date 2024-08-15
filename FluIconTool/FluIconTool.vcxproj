@@ -67,12 +67,12 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Link>
       <AdditionalLibraryDirectories>$(OutDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>FluUtils.lib;FluControls.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>FluUtils.lib;FluControls.lib;..\FluControls\$(Platform)\$(Configuration)\qrc_FluControlsQss.obj;..\FluControls\$(Platform)\$(Configuration)\qrc_FluControlsRes.obj;..\FluUtils\$(Platform)\$(Configuration)\qrc_FluUtilsFonts.obj;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Link>
-      <AdditionalDependencies>FluUtils.lib;FluControls.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>FluUtils.lib;FluControls.lib;..\FluControls\$(Platform)\$(Configuration)\qrc_FluControlsQss.obj;..\FluControls\$(Platform)\$(Configuration)\qrc_FluControlsRes.obj;..\FluUtils\$(Platform)\$(Configuration)\qrc_FluUtilsFonts.obj;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(OutDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>

@@ -1,5 +1,6 @@
 <RCC>
-    <qresource prefix="/">
-        <file alias="res/Segoe_Fluent_Icons.ttf">../res/Segoe_Fluent_Icons.ttf</file>
-    </qresource>
+  <qresource prefix="/">
+    <file alias="res/Segoe_Fluent_Icons.ttf">../res/Segoe_Fluent_Icons.ttf</file>
+  </qresource>
 </RCC>
+

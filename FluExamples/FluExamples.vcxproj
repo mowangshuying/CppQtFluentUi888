@@ -72,12 +72,12 @@
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(OutDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>FluUtils.lib;FluControls.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>FluUtils.lib;FluControls.lib;..\FluControls\$(Platform)\$(Configuration)\qrc_FluControlsQss.obj;..\FluControls\$(Platform)\$(Configuration)\qrc_FluControlsRes.obj;..\FluUtils\$(Platform)\$(Configuration)\qrc_FluUtilsFonts.obj;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Link>
-      <AdditionalDependencies>FluUtils.lib;FluControls.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>FluUtils.lib;FluControls.lib;..\FluControls\$(Platform)\$(Configuration)\qrc_FluControlsQss.obj;..\FluControls\$(Platform)\$(Configuration)\qrc_FluControlsRes.obj;..\FluUtils\$(Platform)\$(Configuration)\qrc_FluUtilsFonts.obj;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(OutDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <ClCompile>
@@ -239,7 +239,7 @@
     <QtMoc Include="FluLineEditDemo.h" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="FluExamples.rc" />
+    <QtRcc Include="FluExamplesQss.qrc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

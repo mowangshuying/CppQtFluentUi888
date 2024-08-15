@@ -67,7 +67,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Link>
       <AdditionalLibraryDirectories>$(OutDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>FluControls.lib;FluUtils.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>FluControls.lib;FluUtils.lib;..\FluControls\$(Platform)\$(Configuration)\qrc_FluControlsQss.obj;..\FluControls\$(Platform)\$(Configuration)\qrc_FluControlsRes.obj;..\FluUtils\$(Platform)\$(Configuration)\qrc_FluUtilsFonts.obj;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <ClCompile>
       <AdditionalIncludeDirectories>$(SolutionDir)3rdparty\framelesshelper\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
@@ -79,7 +79,7 @@
       <AdditionalIncludeDirectories>$(SolutionDir)3rdparty\framelesshelper\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>FluControls.lib;FluUtils.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>FluControls.lib;FluUtils.lib;..\FluControls\$(Platform)\$(Configuration)\qrc_FluControlsQss.obj;..\FluControls\$(Platform)\$(Configuration)\qrc_FluControlsRes.obj;..\FluUtils\$(Platform)\$(Configuration)\qrc_FluUtilsFonts.obj;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(OutDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -327,6 +327,11 @@
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="FluBasicInputPage.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtRcc Include="FluWinGalleryCode.qrc" />
+    <QtRcc Include="FluWinGalleryQss.qrc" />
+    <QtRcc Include="FluWinGalleryRes.qrc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
