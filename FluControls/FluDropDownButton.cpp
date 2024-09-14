@@ -84,7 +84,7 @@ void FluDropDownButton::addTextItem(QString text)
     m_menu->addAction(new FluAction(text));
 }
 
-void FluDropDownButton::addIconTextItem(FluAwesomeType type, QString text)
+void FluDropDownButton::addIconTextItem(QIcon type, QString text)
 {
     m_menu->addAction(new FluAction(type, text));
 }

@@ -29,7 +29,7 @@ class FluDropDownButton : public FluWidget
 
     void addTextItem(QString text);
 
-    void addIconTextItem(FluAwesomeType type, QString text);
+    void addIconTextItem(QIcon type, QString text);
 
     //  void mousePressedEvent(QMouseEvent* event)
     //  {
