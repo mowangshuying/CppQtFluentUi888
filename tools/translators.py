@@ -43,7 +43,7 @@ def translatorsHS():
         for hsItem in hs:
             HS.append(hsItem)
             
-    # 处理qss文件
+    # slove qss
     for item in HS:
         fileData = ""
         with open(item, "r", encoding="utf-8") as f:
