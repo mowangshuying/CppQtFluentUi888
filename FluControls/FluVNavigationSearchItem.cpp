@@ -24,10 +24,34 @@ FluVNavigationSearchItem::FluVNavigationSearchItem(QWidget* parent /*= nullptr*/
     hideSearchButton();
 
     setFixedHeight(40);
-    // m_searchLineEdit->setFixedWidth(300);
-    FluStyleSheetUitls::setQssByFileName(":/StyleSheet/light/FluVNavigationSearchItem.qss", this);
-    // connect(this, &FluNavigationSearchItem::itemClicked, this, &FluNavigationSearchItem::onItemClicked);
+    onThemeChanged();
     connect(m_searchButton, &QPushButton::clicked, [=]() { emit itemClicked(); });
+}
+
+void FluVNavigationSearchItem::hideSearchButton()
+{
+    m_searchButton->hide();
+    m_searchLineEdit->show();
+}
+
+void FluVNavigationSearchItem::hideSearchEdit()
+{
+    m_searchButton->show();
+    m_searchLineEdit->hide();
+}
+
+void FluVNavigationSearchItem::mouseReleaseEvent(QMouseEvent* event)
+{
+    FluVNavigationItem::mouseReleaseEvent(event);
+    emit itemClicked();
+}
+
+void FluVNavigationSearchItem::paintEvent(QPaintEvent* event)
+{
+    QStyleOption opt;
+    opt.initFrom(this);
+    QPainter painter(this);
+    style()->drawPrimitive(QStyle::PE_Widget, &opt, &painter, this);
 }
 
 void FluVNavigationSearchItem::onItemClicked()

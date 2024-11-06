@@ -46,7 +46,7 @@ FluCalendarSelectMonthView::FluCalendarSelectMonthView(QWidget* parent /*= nullp
     }
 
     setFixedHeight(300);
-    FluStyleSheetUitls::setQssByFileName(":/StyleSheet/light/FluCalendarSelectMonthView.qss", this);
+    onThemeChanged();
 }
 
 void FluCalendarSelectMonthView::setYearMonth(int nYear, int nMonth)
@@ -131,4 +131,16 @@ void FluCalendarSelectMonthView::gotoNextYear()
 FluCalendarItem* FluCalendarSelectMonthView::getItem(int nIndex)
 {
     return m_labelList.at(nIndex);
+}
+
+void FluCalendarSelectMonthView::onThemeChanged()
+{
+    if (FluThemeUtils::isLightTheme())
+    {
+        FluStyleSheetUitls::setQssByFileName(":/StyleSheet/light/FluCalendarSelectMonthView.qss", this);
+    }
+    else
+    {
+        FluStyleSheetUitls::setQssByFileName(":/StyleSheet/dark/FluCalendarSelectMonthView.qss", this);
+    }
 }

@@ -34,7 +34,7 @@ FluVNavigationSettingsItem::FluVNavigationSettingsItem(QIcon icon, QString text,
     m_hMainLayout->addWidget(m_label, 1);
     m_hMainLayout->setSpacing(0);
 
-    FluStyleSheetUitls::setQssByFileName(":/StyleSheet/light/FluVNavigationSettingsItem.qss", this);
+    onThemeChanged();
     connect(m_icon, &FluRotationButton::clicked, [=](bool b) { emit itemClicked(); });
     connect(this, &FluVNavigationSettingsItem::itemClicked, this, &FluVNavigationSettingsItem::onItemClicked);
 }
@@ -43,6 +43,56 @@ FluVNavigationSettingsItem::FluVNavigationSettingsItem(FluAwesomeType awesomeTyp
 {
     m_icon->setIcon(FluIconUtils::getFluentIcon(awesomeType));
     m_icon->setAwesomeType(awesomeType);
+}
+
+void FluVNavigationSettingsItem::hideLabel()
+{
+    m_label->hide();
+}
+
+void FluVNavigationSettingsItem::showLabel()
+{
+    m_label->show();
+}
+
+void FluVNavigationSettingsItem::updateAllItemsStyleSheet()
+{
+    updateItemsStyleSheet();
+}
+
+void FluVNavigationSettingsItem::updateItemsStyleSheet()
+{
+    style()->polish(this);
+    m_indicator->style()->polish(m_indicator);
+    m_icon->style()->polish(m_icon);
+    m_label->style()->polish(m_label);
+}
+
+void FluVNavigationSettingsItem::updateSelected(bool b)
+{
+    m_bSelected = b;
+    setProperty("selected", b);
+    m_indicator->setProperty("selected", b);
+    m_label->setProperty("selected", b);
+}
+
+void FluVNavigationSettingsItem::clearAllItemsSelectState()
+{
+    updateSelected(false);
+}
+
+void FluVNavigationSettingsItem::mouseReleaseEvent(QMouseEvent* event)
+{
+    FluVNavigationItem::mouseReleaseEvent(event);
+    emit itemClicked();
+}
+
+void FluVNavigationSettingsItem::paintEvent(QPaintEvent* event)
+{
+    QStyleOption opt;
+    opt.initFrom(this);
+    QPainter painter(this);
+    style()->drawPrimitive(QStyle::PE_Widget, &opt, &painter, this);
 }
 
 void FluVNavigationSettingsItem::onItemClicked()

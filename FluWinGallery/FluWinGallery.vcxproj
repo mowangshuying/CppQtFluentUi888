@@ -153,10 +153,12 @@
     <ClCompile Include="FluRatingControlPage.cpp" />
     <ClCompile Include="FluRepeatButtonPage.cpp" />
     <ClCompile Include="FluScrollingPage.cpp" />
+    <ClCompile Include="FluScrollViewPage.cpp" />
     <ClCompile Include="FluSettingPage.cpp" />
     <ClCompile Include="FluSliderPage.cpp" />
     <ClCompile Include="FluSplitButtonPage.cpp" />
     <ClCompile Include="FluStatusAndInfoPage.cpp" />
+    <ClCompile Include="FluTableViewPage.cpp" />
     <ClCompile Include="FluTextBoxPage.cpp" />
     <ClCompile Include="FluTextPage.cpp" />
     <ClCompile Include="FluTimePickerPage.cpp" />
@@ -327,6 +329,16 @@
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="FluBasicInputPage.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="FluScrollViewPage.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="FluWinGallery.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="FluTableViewPage.h" />
+    <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
     <QtRcc Include="FluWinGalleryCode.qrc" />

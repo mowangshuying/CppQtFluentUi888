@@ -35,7 +35,7 @@ void FluAllSamplesPage::makeBasicInputCards()
     buttonCard->setKey("ButtonPage");
     m_cards.push_back(buttonCard);
 
-    auto checkboxCard = new FluHCard(QPixmap(":/res/ControlImages/CheckBox.png"), "CheckBox", "A control that a user can select or clear.");
+    auto checkboxCard = new FluHCard(QPixmap(":/res/ControlImages/Checkbox.png"), "CheckBox", "A control that a user can select or clear.");
     checkboxCard->setKey("CheckBoxPage");
     m_cards.push_back(checkboxCard);
 
@@ -357,4 +357,16 @@ void FluAllSamplesPage::makeTextCards()
     auto textBoxCard = new FluHCard(QPixmap(":/res/ControlImages/TextBox.png"), "TextBox", "A single-line or multi-line plain text field.");
     textBoxCard->setKey("TextBoxPage");
     m_cards.push_back(textBoxCard);
+}
+
+void FluAllSamplesPage::onThemeChanged()
+{
+    if (FluThemeUtils::isLightTheme())
+    {
+        FluStyleSheetUitls::setQssByFileName(":/StyleSheet/light/FluAllSamplesPage.qss", this);
+    }
+    else
+    {
+        FluStyleSheetUitls::setQssByFileName(":/StyleSheet/dark/FluAllSamplesPage.qss", this);
+    }
 }

@@ -22,11 +22,22 @@ FluCalendarViewTitle::FluCalendarViewTitle(QWidget* parent /*= nullptr*/) : FluW
     m_nextBtn->setObjectName("nextBtn");
 
     setFixedHeight(50);
+    onThemeChanged();
+}
 
-    FluStyleSheetUitls::setQssByFileName(":/StyleSheet/light/FluCalendarViewTitle.qss", m_yearMonthBtn);
-    FluStyleSheetUitls::setQssByFileName(":/StyleSheet/light/FluCalendarViewTitle.qss", m_preBtn);
-    FluStyleSheetUitls::setQssByFileName(":/StyleSheet/light/FluCalendarViewTitle.qss", m_nextBtn);
-    FluStyleSheetUitls::setQssByFileName(":/StyleSheet/light/FluCalendarViewTitle.qss", this);
+FluPushButton* FluCalendarViewTitle::getYearMonthBtn()
+{
+    return m_yearMonthBtn;
+}
+
+FluIconButton* FluCalendarViewTitle::getNextBtn()
+{
+    return m_nextBtn;
+}
+
+FluIconButton* FluCalendarViewTitle::getPreBtn()
+{
+    return m_preBtn;
 }
 
 void FluCalendarViewTitle::setYearMonth(int nYear, int nMonth)
@@ -49,5 +60,31 @@ void FluCalendarViewTitle::setYearMonth(int nYear, int nMonth)
     {
         QString yearMonthText = QString::asprintf("%d - %d", nYear, nMonth);
         m_yearMonthBtn->setText(yearMonthText);
+    }
+}
+
+void FluCalendarViewTitle::paintEvent(QPaintEvent* event)
+{
+    QStyleOption opt;
+    opt.initFrom(this);
+    QPainter painter(this);
+    style()->drawPrimitive(QStyle::PE_Widget, &opt, &painter, this);
+}
+
+void FluCalendarViewTitle::onThemeChanged()
+{
+    if (FluThemeUtils::isLightTheme())
+    {
+        FluStyleSheetUitls::setQssByFileName(":/StyleSheet/light/FluCalendarViewTitle.qss", m_yearMonthBtn);
+        FluStyleSheetUitls::setQssByFileName(":/StyleSheet/light/FluCalendarViewTitle.qss", m_preBtn);
+        FluStyleSheetUitls::setQssByFileName(":/StyleSheet/light/FluCalendarViewTitle.qss", m_nextBtn);
+        FluStyleSheetUitls::setQssByFileName(":/StyleSheet/light/FluCalendarViewTitle.qss", this);
+    }
+    else
+    {
+        FluStyleSheetUitls::setQssByFileName(":/StyleSheet/dark/FluCalendarViewTitle.qss", m_yearMonthBtn);
+        FluStyleSheetUitls::setQssByFileName(":/StyleSheet/dark/FluCalendarViewTitle.qss", m_preBtn);
+        FluStyleSheetUitls::setQssByFileName(":/StyleSheet/dark/FluCalendarViewTitle.qss", m_nextBtn);
+        FluStyleSheetUitls::setQssByFileName(":/StyleSheet/dark/FluCalendarViewTitle.qss", this);
     }
 }

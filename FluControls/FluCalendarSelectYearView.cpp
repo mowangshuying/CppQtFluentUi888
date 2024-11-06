@@ -49,7 +49,15 @@ FluCalendarSelectYearView::FluCalendarSelectYearView(QWidget* parent) : FluWidge
     setYears(curDate.year(), curDate.month());
 
     setFixedHeight(300);
-    FluStyleSheetUitls::setQssByFileName(":/StyleSheet/light/FluCalendarSelectYearView.qss", this);
+    onThemeChanged();
+}
+
+FluCalendarItem* FluCalendarSelectYearView::getItem(int nIndex)
+{
+    if (nIndex < 0 || nIndex >= m_labelList.size())
+        return nullptr;
+
+    return m_labelList.at(nIndex);
 }
 
 void FluCalendarSelectYearView::setYears(int nYear, int nMonth)
@@ -168,4 +176,16 @@ void FluCalendarSelectYearView::getRange(int nYear, int& nStartYear, int& nEndYe
     nEndYear = nStartYear + 9;
     if (nYear + 9 > 2124)
         nEndYear = 2124;
+}
+
+void FluCalendarSelectYearView::onThemeChanged()
+{
+    if (FluThemeUtils::isLightTheme())
+    {
+        FluStyleSheetUitls::setQssByFileName(":/StyleSheet/light/FluCalendarSelectYearView.qss", this);
+    }
+    else
+    {
+        FluStyleSheetUitls::setQssByFileName(":/StyleSheet/dark/FluCalendarSelectYearView.qss", this);
+    }
 }

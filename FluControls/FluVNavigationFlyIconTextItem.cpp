@@ -4,25 +4,21 @@
 
 FluVNavigationFlyIconTextItem::FluVNavigationFlyIconTextItem(QWidget* parent /*= nullptr*/) : FluWidget(parent)
 {
-    m_widget = new FluVScrollView;
-    m_widget->setObjectName("centerWidget");
+    m_vScrollView = new FluVScrollView;
+    m_vScrollView->setContentsMargins(0, 0, 0, 0);
+    m_vScrollView->setObjectName("centerWidget");
+
     m_vMainLayout = new QVBoxLayout;
+    m_vMainLayout->setContentsMargins(0, 0, 0, 0);
     setLayout(m_vMainLayout);
 
-    m_vMainLayout->addWidget(m_widget);
-    m_vMainLayout->setContentsMargins(5, 5, 5, 5);
+    m_vScrollView->getMainLayout()->setContentsMargins(4, 4, 4, 4);
+    m_vMainLayout->addWidget(m_vScrollView);
 
-    // m_vCenterLayout = new QVBoxLayout;
-    // m_vCenterLayout->setContentsMargins(5, 5, 5, 5);
-    // m_widget->setLayout(m_vCenterLayout);
-
-    m_widget->getMainLayout()->setContentsMargins(5, 5, 5, 5);
     setWindowFlags(Qt::Popup | Qt::FramelessWindowHint | Qt::NoDropShadowWindowHint);
     setAttribute(Qt::WA_TranslucentBackground);
     setAttribute(Qt::WA_DeleteOnClose);
 
-    // FluStyleSheetUitls::setQssByFileName(":/StyleSheet/light/FluNavigationFlyIconTextItem.qss", m_widget);
-    // FluStyleSheetUitls::setQssByFileName(":/StyleSheet/light/FluNavigationFlyIconTextItem.qss", this);
     onThemeChanged();
 }
 
@@ -37,7 +33,7 @@ void FluVNavigationFlyIconTextItem::setIconTextItems(std::vector<FluVNavigationI
     for (auto item : items)
     {
         auto newItem = new FluVNavigationIconTextItem(item);
-        m_widget->getMainLayout()->addWidget(newItem);
+        m_vScrollView->getMainLayout()->addWidget(newItem);
         m_items.push_back(newItem);
 
         connect(newItem, &FluVNavigationIconTextItem::itemClicked, this, [=]() {
@@ -55,9 +51,8 @@ void FluVNavigationFlyIconTextItem::setIconTextItems(std::vector<FluVNavigationI
 
 void FluVNavigationFlyIconTextItem::adjustItemSize()
 {
-    LOG_DEBUG << "called";
+    // LOG_DEBUG << "called";
     int nMaxWidth = 0;
-
     for (auto item : m_items)
     {
         int nWidth = item->calcItemW1Width();
@@ -73,8 +68,17 @@ void FluVNavigationFlyIconTextItem::adjustItemSize()
         item->setFixedWidth(nMaxWidth);
     }
 
-    // m_widget->setFixedWidth(nMaxWidth + 10);
-    setFixedWidth(nMaxWidth + 25);
+    int nTotalMargins = m_vScrollView->contentsMargins().left() + m_vScrollView->contentsMargins().right() + m_vScrollView->getMainLayout()->contentsMargins().left() + m_vScrollView->getMainLayout()->contentsMargins().left();
+    m_vScrollView->setFixedWidth(nMaxWidth + nTotalMargins);
+    setFixedWidth(nMaxWidth + nTotalMargins);
+}
+
+void FluVNavigationFlyIconTextItem::paintEvent(QPaintEvent* event)
+{
+    QStyleOption opt;
+    opt.initFrom(this);
+    QPainter painter(this);
+    style()->drawPrimitive(QStyle::PE_Widget, &opt, &painter, this);
 }
 
 void FluVNavigationFlyIconTextItem::onThemeChanged()
@@ -82,12 +86,12 @@ void FluVNavigationFlyIconTextItem::onThemeChanged()
     // LOG_DEBUG << "called";
     if (FluThemeUtils::isLightTheme())
     {
-        FluStyleSheetUitls::setQssByFileName(":/StyleSheet/light/FluVNavigationFlyIconTextItem.qss", m_widget);
+        FluStyleSheetUitls::setQssByFileName(":/StyleSheet/light/FluVNavigationFlyIconTextItem.qss", m_vScrollView);
         FluStyleSheetUitls::setQssByFileName(":/StyleSheet/light/FluVNavigationFlyIconTextItem.qss", this);
     }
     else
     {
-        FluStyleSheetUitls::setQssByFileName(":/StyleSheet/dark/FluVNavigationFlyIconTextItem.qss", m_widget);
+        FluStyleSheetUitls::setQssByFileName(":/StyleSheet/dark/FluVNavigationFlyIconTextItem.qss", m_vScrollView);
         FluStyleSheetUitls::setQssByFileName(":/StyleSheet/dark/FluVNavigationFlyIconTextItem.qss", this);
     }
 }

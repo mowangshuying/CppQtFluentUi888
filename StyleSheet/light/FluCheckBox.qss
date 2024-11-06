@@ -24,17 +24,17 @@ QCheckBox::indicator:checked {
     background-color: rgb(0, 90, 158);
     border: 1px solid rgb(0, 90, 158);
     color: rgb(255, 255, 255);
-    image: url(":/res/ControlResImages/CheckBox-White.png");
+    image: url("../res/ControlResImages/CheckBox-White.png");
 }
 
 QCheckBox::indicator:checked:pressed {
-    image: url(":/res/ControlResImages/CheckBoxPressed-White.png");
+    image: url("../res/ControlResImages/CheckBoxPressed-White.png");
 }
 
 QCheckBox::indicator:indeterminate {
     background-color: rgb(0, 90, 158);
     border: 1px solid rgb(0, 90, 158);
-    image: url(:/res/ControlResImages/CheckboxIndeterminate-White.png);
+    image: url(../res/ControlResImages/CheckboxIndeterminate-White.png);
 }
 
 QCheckBox:disabled {

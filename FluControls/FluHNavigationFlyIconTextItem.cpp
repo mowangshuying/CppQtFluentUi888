@@ -14,6 +14,7 @@ FluHNavigationFlyIconTextItem::FluHNavigationFlyIconTextItem(QWidget* parent /*=
     // m_vScrollView->setContentsMargins(0, 0, 0, 0);
     m_vScrollView->getMainLayout()->setContentsMargins(0, 0, 0, 0);
     m_vScrollView->getMainLayout()->setSpacing(0);
+    m_vScrollView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_vMainLayout->addWidget(m_vScrollView);
 
     setWindowFlags(Qt::Popup | Qt::FramelessWindowHint | Qt::NoDropShadowWindowHint);
@@ -72,6 +73,16 @@ void FluHNavigationFlyIconTextItem::adjustItemWidth()
 
     setFixedWidth(nMaxWidth + 10);
     // setFixedHeight(nMaxHeight + 10);
+}
+
+QVBoxLayout* FluHNavigationFlyIconTextItem::getMainLayout()
+{
+    return m_vMainLayout;
+}
+
+FluVScrollView* FluHNavigationFlyIconTextItem::getVScrollView()
+{
+    return m_vScrollView;
 }
 
 void FluHNavigationFlyIconTextItem::clearAllItemsSelectState()

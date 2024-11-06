@@ -164,10 +164,22 @@
     <ClCompile Include="FluTreeViewDemo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="FluTemplateDemo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FluTriangleDemo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FluTimeLineIconDemo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FluTimeLineDemo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="FluAnimationDemo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="FluBusyProgressRingDemo.cpp">
+    <ClCompile Include="FluSettingsVersionBoxDemo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="FluColorViewDemo.cpp">
@@ -176,19 +188,19 @@
     <ClCompile Include="FluIntructionsDemo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="FluSettingsVersionBoxDemo.cpp">
+    <ClCompile Include="FluBusyProgressRingDemo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="FluTemplateDemo.cpp">
+    <ClCompile Include="FluScrollAreaDemo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="FluTimeLineDemo.cpp">
+    <ClCompile Include="FluScintillaDemo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="FluTimeLineIconDemo.cpp">
+    <ClCompile Include="FluTableViewDemo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="FluTriangleDemo.cpp">
+    <ClCompile Include="FluTableViewExDemo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -304,25 +316,34 @@
     <QtMoc Include="FluTreeViewDemo.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="FluTemplateDemo.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="FluTriangleDemo.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="FluTimeLineIconDemo.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="FluTimeLineDemo.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="FluSettingsVersionBoxDemo.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
     <QtMoc Include="FluColorViewDemo.h">
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="FluIntructionsDemo.h">
       <Filter>Header Files</Filter>
     </QtMoc>
-    <QtMoc Include="FluSettingsVersionBoxDemo.h">
+    <QtMoc Include="FluScrollAreaDemo.h">
       <Filter>Header Files</Filter>
     </QtMoc>
-    <QtMoc Include="FluTemplateDemo.h">
+    <QtMoc Include="FluScintillaDemo.h">
       <Filter>Header Files</Filter>
     </QtMoc>
-    <QtMoc Include="FluTimeLineDemo.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
-    <QtMoc Include="FluTimeLineIconDemo.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
-    <QtMoc Include="FluTriangleDemo.h">
+    <QtMoc Include="FluTableViewDemo.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
@@ -354,13 +375,13 @@
     <ClInclude Include="FluTabViewDemo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="resource.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="FluAnimationDemo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="FluBusyProgressRingDemo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FluTableViewExDemo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

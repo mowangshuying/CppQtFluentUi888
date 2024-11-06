@@ -14,7 +14,6 @@
   <img src="docs/gallery.png">
 </div>
 
-
 ## 条件
 
 + Vs2022, Qt6.5.1

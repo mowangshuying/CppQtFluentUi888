@@ -44,6 +44,7 @@
     <file alias="StyleSheet/dark/FluSliderPage.qss">../StyleSheet/dark/FluSliderPage.qss</file>
     <file alias="StyleSheet/dark/FluSplitButtonPage.qss">../StyleSheet/dark/FluSplitButtonPage.qss</file>
     <file alias="StyleSheet/dark/FluStatusAndInfoPage.qss">../StyleSheet/dark/FluStatusAndInfoPage.qss</file>
+	<file alias="StyleSheet/dark/FluTableViewPage.qss">../StyleSheet/dark/FluTableViewPage.qss</file>
     <file alias="StyleSheet/dark/FluTextBoxPage.qss">../StyleSheet/dark/FluTextBoxPage.qss</file>
     <file alias="StyleSheet/dark/FluTextPage.qss">../StyleSheet/dark/FluTextPage.qss</file>
     <file alias="StyleSheet/dark/FluTimePickerPage.qss">../StyleSheet/dark/FluTimePickerPage.qss</file>
@@ -94,6 +95,7 @@
     <file alias="StyleSheet/light/FluSliderPage.qss">../StyleSheet/light/FluSliderPage.qss</file>
     <file alias="StyleSheet/light/FluSplitButtonPage.qss">../StyleSheet/light/FluSplitButtonPage.qss</file>
     <file alias="StyleSheet/light/FluStatusAndInfoPage.qss">../StyleSheet/light/FluStatusAndInfoPage.qss</file>
+	<file alias="StyleSheet/light/FluTableViewPage.qss">../StyleSheet/light/FluTableViewPage.qss</file>
     <file alias="StyleSheet/light/FluTextBoxPage.qss">../StyleSheet/light/FluTextBoxPage.qss</file>
     <file alias="StyleSheet/light/FluTextPage.qss">../StyleSheet/light/FluTextPage.qss</file>
     <file alias="StyleSheet/light/FluTimePickerPage.qss">../StyleSheet/light/FluTimePickerPage.qss</file>
