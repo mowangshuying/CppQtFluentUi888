@@ -195,6 +195,8 @@ set(QSS_FILES
     "../StyleSheet/light/FluVRadioGroupBox.qss"
     "../StyleSheet/light/FluVScrollView.qss"
     "../StyleSheet/light/FluVSplitLine.qss"
+    "../StyleSheet/light/FluTableView.qss"
+    "../StyleSheet/dark/FluTableView.qss"
 )
 source_group(TREE ${CMAKE_SOURCE_DIR} FILES ${QSS_FILES})
 

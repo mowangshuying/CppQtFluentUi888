@@ -619,7 +619,8 @@ set(QSS_FILES
     "../StyleSheet/light/FluMenuAndToolBarsPage.qss"
     "../StyleSheet/light/FluNavigationPage.qss"
     "../StyleSheet/light/FluScrollingPage.qss"
-    "../StyleSheet/light/FluTreeView.qss"
+    "../StyleSheet/light/FluTableViewPage.qss"
+    "../StyleSheet/dark/FluTableViewPage.qss"
 )
 source_group(TREE ${CMAKE_SOURCE_DIR} FILES ${QSS_FILES})
 
