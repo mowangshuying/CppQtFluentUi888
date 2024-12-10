@@ -198,7 +198,7 @@
     <QtMoc Include="FluColorViewDemo.h" />
     <QtMoc Include="FluIntructionsDemo.h" />
     <ClInclude Include="FluBusyProgressRingDemo.h" />
-    <ClInclude Include="FluScintillaDemo.h" />
+    <QtMoc Include="FluScintillaDemo.h" />
     <ClInclude Include="resource.h" />
     <QtMoc Include="FluTreeViewDemo.h" />
     <QtMoc Include="FluFrameLessDemo.h" />
