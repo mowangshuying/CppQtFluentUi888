@@ -191,16 +191,7 @@
     <ClCompile Include="FluBusyProgressRingDemo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="FluScrollAreaDemo.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="FluScintillaDemo.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="FluTableViewDemo.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="FluTableViewExDemo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -337,15 +328,6 @@
     <QtMoc Include="FluIntructionsDemo.h">
       <Filter>Header Files</Filter>
     </QtMoc>
-    <QtMoc Include="FluScrollAreaDemo.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
-    <QtMoc Include="FluScintillaDemo.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
-    <QtMoc Include="FluTableViewDemo.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FluFlowLayoutDemo.h">
@@ -381,7 +363,10 @@
     <ClInclude Include="FluBusyProgressRingDemo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="FluTableViewExDemo.h">
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FluScintillaDemo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

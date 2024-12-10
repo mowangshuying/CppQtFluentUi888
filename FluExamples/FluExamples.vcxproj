@@ -68,20 +68,20 @@
     <ClCompile>
       <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
       <PreprocessorDefinitions>_DEBUG_QSS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(SolutionDir)3rdparty\framelesshelper\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)3rdparty\qscintilla\include\src\Qsci;$(SolutionDir)3rdparty\qscintilla\include\src;$(SolutionDir)3rdparty\qscintilla\include;$(SolutionDir)3rdparty\framelesshelper\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(OutDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>FluUtils.lib;FluControls.lib;..\FluControls\$(Platform)\$(Configuration)\qrc_FluControlsQss.obj;..\FluControls\$(Platform)\$(Configuration)\qrc_FluControlsRes.obj;..\FluUtils\$(Platform)\$(Configuration)\qrc_FluUtilsFonts.obj;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)3rdparty\qscintilla\lib\debug;$(OutDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>FluUtils.lib;FluControls.lib;qscintilla2_qt6d.lib;..\FluControls\$(Platform)\$(Configuration)\qrc_FluControlsQss.obj;..\FluControls\$(Platform)\$(Configuration)\qrc_FluControlsRes.obj;..\FluUtils\$(Platform)\$(Configuration)\qrc_FluUtilsFonts.obj;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Link>
-      <AdditionalDependencies>FluUtils.lib;FluControls.lib;..\FluControls\$(Platform)\$(Configuration)\qrc_FluControlsQss.obj;..\FluControls\$(Platform)\$(Configuration)\qrc_FluControlsRes.obj;..\FluUtils\$(Platform)\$(Configuration)\qrc_FluUtilsFonts.obj;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(OutDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>FluUtils.lib;FluControls.lib;qscintilla2_qt6.lib;..\FluControls\$(Platform)\$(Configuration)\qrc_FluControlsQss.obj;..\FluControls\$(Platform)\$(Configuration)\qrc_FluControlsRes.obj;..\FluUtils\$(Platform)\$(Configuration)\qrc_FluUtilsFonts.obj;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(OutDir);$(SolutionDir)3rdparty\qscintilla\lib\release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <ClCompile>
-      <AdditionalIncludeDirectories>$(SolutionDir)3rdparty\framelesshelper\include;$(SolutionDir)3rdparty\qwindowkit\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)3rdparty\framelesshelper\include;$(SolutionDir)3rdparty\qscintilla\include\src\Qsci;$(SolutionDir)3rdparty\qwindowkit\include;$(SolutionDir)3rdparty\qscintilla\include\src;$(SolutionDir)3rdparty\qscintilla\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="Configuration">
@@ -123,6 +123,7 @@
     <ClCompile Include="FluColorViewDemo.cpp" />
     <ClCompile Include="FluComboBoxDemo.cpp" />
     <ClCompile Include="FluIntructionsDemo.cpp" />
+    <ClCompile Include="FluScintillaDemo.cpp" />
     <ClCompile Include="FluSettingsVersionBoxDemo.cpp" />
     <ClCompile Include="FluTemplateDemo.cpp" />
     <ClCompile Include="FluFrameLessDemo.cpp" />
@@ -197,6 +198,7 @@
     <QtMoc Include="FluColorViewDemo.h" />
     <QtMoc Include="FluIntructionsDemo.h" />
     <ClInclude Include="FluBusyProgressRingDemo.h" />
+    <ClInclude Include="FluScintillaDemo.h" />
     <ClInclude Include="resource.h" />
     <QtMoc Include="FluTreeViewDemo.h" />
     <QtMoc Include="FluFrameLessDemo.h" />
